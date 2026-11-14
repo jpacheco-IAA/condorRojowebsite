@@ -1,0 +1,671 @@
+
+/* CÓNDOR ROJO — MINIMAL REDESIGN
+   Load AFTER styles.css.
+   Keeps the existing HTML and JavaScript.
+*/
+
+:root {
+  --bg: #0b1018;
+  --panel: #111a26;
+  --panel2: #111a26;
+  --orange: #ee9b76;
+  --rust: #c98364;
+  --cream: #f4f5f8;
+  --muted: #9aa7b8;
+  --line: rgba(203, 217, 235, .13);
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+}
+
+h1, h2, h3, h4 {
+  font-weight: 650;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* NAVIGATION */
+
+.top-strip,
+.marquee {
+  display: none;
+}
+
+.site-header {
+  max-width: none;
+  padding: 16px max(5%, calc((100% - 1240px)/2));
+  background: rgba(11, 16, 24, .94);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.brand {
+  font-size: 19px;
+  letter-spacing: -.05em;
+}
+
+.brand-icon {
+  font-size: 25px;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.main-nav {
+  gap: 23px;
+}
+
+.main-nav a {
+  font-size: 12px;
+  font-weight: 500;
+  color: #c0c9d6;
+}
+
+.main-nav a:hover {
+  color: var(--cream);
+}
+
+.language-switch {
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.nav-cta {
+  padding: 11px 15px;
+  background: var(--cream);
+  color: var(--bg) !important;
+  border-radius: 6px;
+}
+
+.nav-cta:hover {
+  background: #dfe4ec;
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1340px;
+  min-height: 620px;
+  padding: 105px 5%;
+  gap: 75px;
+  grid-template-columns: 1.15fr .85fr;
+  background: none;
+}
+
+.eyebrow,
+.kicker,
+.panel-label {
+  color: var(--orange);
+  font-size: 10px;
+  letter-spacing: .16em;
+}
+
+.hero h1 {
+  margin: 22px 0;
+  font-size: clamp(56px, 6.4vw, 94px);
+  line-height: 1.02;
+  letter-spacing: -.075em;
+}
+
+.hero-subtitle {
+  margin: 0 0 16px;
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 500;
+}
+
+.hero-description {
+  max-width: 550px;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.hero-actions {
+  margin-top: 27px;
+  gap: 12px;
+}
+
+.btn {
+  padding: 14px 21px;
+  font-weight: 650;
+  font-size: 11px;
+  letter-spacing: .025em;
+  border-radius: 6px;
+  transition:
+    background .2s,
+    color .2s,
+    border-color .2s,
+    transform .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #15151a;
+}
+
+.btn-primary:hover {
+  background: #f5b294;
+}
+
+.btn-outline {
+  border: 1px solid #536071;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--orange);
+}
+
+.btn-dark {
+  background: #111a26;
+  color: var(--cream);
+}
+
+.hero-stats {
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.hero-stats div {
+  border-color: var(--line);
+  padding-left: 14px;
+}
+
+.hero-stats strong {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.hero-stats span {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+/* MARS VISUAL */
+
+.planet-illustration {
+  height: 395px;
+  border: none;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(208, 113, 79, .11),
+      transparent 62%
+    ),
+    #0f1722;
+}
+
+.planet {
+  width: 245px;
+  height: 245px;
+  box-shadow:
+    inset -42px -24px 50px #301a2099;
+  animation: none;
+}
+
+.planet-orbit {
+  width: 314px;
+  height: 314px;
+  border: 1px solid rgba(210, 223, 238, .12);
+}
+
+.planet-label {
+  color: #bbc1d0;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.status-card {
+  bottom: 18px;
+  left: 18px;
+  padding: 12px 15px;
+  background: rgba(12, 18, 28, .88);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.status-card small {
+  font-size: 9px;
+}
+
+.status-card strong {
+  font-size: 11px;
+}
+
+.live-dot {
+  box-shadow: none;
+  background: #9ed9ad;
+}
+
+/* GLOBAL SECTIONS */
+
+.section {
+  max-width: 1340px;
+  padding: 95px 5%;
+}
+
+.section-heading {
+  max-width: 790px;
+  margin-bottom: 34px;
+}
+
+.section h2 {
+  font-size: clamp(34px, 4.4vw, 59px);
+  line-height: 1.13;
+  letter-spacing: -.055em;
+  margin: 18px 0 17px;
+}
+
+.section-heading p,
+.science-copy > p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.mission-grid,
+.experience-layout,
+.science-layout {
+  gap: 20px;
+}
+
+/* MISSION */
+
+.panel {
+  min-height: 0;
+  padding: 34px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.challenge-panel,
+.solution-panel {
+  background: var(--panel);
+}
+
+.panel h3 {
+  font-size: clamp(21px, 2.4vw, 29px);
+  letter-spacing: -.035em;
+}
+
+.challenge-item {
+  padding: 18px 0;
+  gap: 18px;
+}
+
+.challenge-item > span {
+  font-size: 11px;
+}
+
+.challenge-item p {
+  color: var(--muted);
+}
+
+.solution-symbol {
+  margin: 20px 0;
+  font-size: 74px;
+  color: var(--orange);
+  animation: none;
+  text-align: left;
+}
+
+.solution-panel p {
+  color: var(--muted);
+}
+
+.text-link {
+  color: var(--orange);
+  border-color: rgba(238, 155, 118, .45);
+}
+
+/* GAME EXPERIENCE */
+
+.section-experience,
+.section-systems {
+  background: transparent;
+}
+
+.game-preview {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.preview-bar,
+.preview-caption {
+  color: #b5c2d1;
+  background: #121b26;
+}
+
+.preview-art {
+  background: linear-gradient(
+    #354455,
+    #d07a55 78%
+  );
+}
+
+.mission-steps {
+  padding: 10px 12px;
+}
+
+.step {
+  border-color: var(--line);
+}
+
+.step-number {
+  color: var(--orange);
+}
+
+.step p {
+  color: var(--muted);
+}
+
+.experience-callout {
+  background: #111a26;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.experience-callout a {
+  color: var(--orange);
+}
+
+/* GAME SYSTEMS AND CARDS */
+
+.systems-grid,
+.facts-grid,
+.companion-grid,
+.team-grid {
+  gap: 16px;
+}
+
+.system-card,
+.fact-card,
+.companion-card,
+.team-card {
+  background: #111a26;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+  transition:
+    border-color .2s,
+    transform .2s;
+}
+
+.system-card,
+.fact-card,
+.companion-card {
+  padding: 27px;
+}
+
+.system-card:hover,
+.fact-card:hover,
+.companion-card:hover,
+.team-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(238, 155, 118, .48);
+}
+
+.system-card .system-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.system-card h3 {
+  font-size: 21px;
+}
+
+.system-card p,
+.fact-card p,
+.companion-card p {
+  color: var(--muted);
+}
+
+/* MARS FACTS */
+
+.fact-card strong {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.section-facts {
+  background: #0e1520;
+}
+
+/* SCIENCE */
+
+.section-science {
+  background: transparent;
+}
+
+.science-planet {
+  width: 235px;
+  height: 235px;
+  box-shadow: none;
+}
+
+.science-note {
+  background: #111a26;
+  border-left: 2px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+}
+
+.science-note strong {
+  color: var(--cream);
+}
+
+.science-note p {
+  color: var(--muted);
+}
+
+/* COMPANIONS */
+
+.companion-image {
+  height: 150px;
+}
+
+.companion-card h3 {
+  color: var(--cream);
+}
+
+/* TEAM */
+
+.team-card {
+  padding: 28px;
+}
+
+.team-avatar {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: block;
+  padding: 0;
+  margin-bottom: 26px;
+  background: transparent;
+  border: 0;
+}
+
+.team-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.team-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.team-card p {
+  color: var(--muted);
+}
+
+/* FINAL CTA */
+
+.final-card {
+  padding: 55px;
+  background: #151f2c;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.final-card .kicker {
+  color: var(--orange);
+}
+
+.final-card p {
+  max-width: 680px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.final-emblem {
+  font-size: 65px;
+  min-width: 110px;
+  color: var(--orange);
+  opacity: .6;
+}
+
+.final-emblem span {
+  font-size: 9px;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 55px 5% 25px;
+  background: #090e15;
+  border-top: 1px solid var(--line);
+}
+
+.footer-main,
+.footer-bottom {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-main p,
+.footer-bottom {
+  color: var(--muted);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1100px) {
+  .main-nav {
+    background: #101824;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-nav a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .planet-illustration {
+    height: 340px;
+  }
+
+  .section {
+    padding: 75px 5%;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 65px;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 13vw, 76px);
+    letter-spacing: -.07em;
+  }
+
+  .hero-stats {
+    gap: 16px;
+    margin-top: 35px;
+  }
+
+  .hero-stats strong {
+    font-size: 21px;
+  }
+
+  .planet-illustration {
+    height: 300px;
+  }
+
+  .planet {
+    width: 205px;
+    height: 205px;
+  }
+
+  .planet-orbit {
+    width: 255px;
+    height: 255px;
+  }
+
+  .status-card {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .section h2 {
+    font-size: 38px;
+  }
+
+  .panel,
+  .system-card,
+  .fact-card,
+  .companion-card,
+  .team-card {
+    padding: 24px;
+  }
+
+  .final-card {
+    padding: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planet {
+    animation: none;
+  }
+}
