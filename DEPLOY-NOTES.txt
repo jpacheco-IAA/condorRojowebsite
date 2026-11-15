@@ -1,0 +1,14 @@
+Cóndor Rojo — Complete GitHub Pages Website
+
+Changes in this package:
+- Header icon is now a small red circle (no Mars photo in the navbar).
+- Mars photographs are retained in the Mission and final sections, with explicit image sizing to prevent overflow.
+- Keeps the English/Spanish translation improvements, game-first educational copy, local images, and Godot browser export.
+
+Deploying on GitHub Pages:
+1) Open this condorRojowebsite folder.
+2) Upload/replace all its contents at the ROOT of the repository jpacheco-IAA/condorRojowebsite.
+3) Keep index.html, styles.css, minimal.css, script.js, images/, and game/ at repository root.
+4) Open the Pages URL and hard-refresh to clear cached CSS.
+
+The game files are unchanged from the last website ZIP uploaded to this conversation.

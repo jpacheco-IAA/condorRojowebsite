@@ -1,5 +1,5 @@
 
-/* CÓNDOR ROJO - ASTROSHARKS WEBSITE */
+// CÓNDOR ROJO - ASTROSHARKS WEBSITE
 
 // Add the game link when it is published.
 const SITE_CONFIG = {

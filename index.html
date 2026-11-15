@@ -1,749 +1,435 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cóndor Rojo | Astrosharks</title>
-  <meta name="description" content="Explore Mars, recover five NASA rover archives, and learn through decisions in Cóndor Rojo.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="minimal.css">
-  <script src="script.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Cóndor Rojo | Astrosharks</title>
+<meta content="Explore Mars in Cóndor Rojo: manage oxygen, energy and food, gather samples, recover five rover archives inspired by NASA missions and learn from real Mars research." data-description-en="Explore Mars in Cóndor Rojo: manage oxygen, energy and food, gather samples, recover five rover archives inspired by NASA missions and learn from real Mars research." data-description-es="Explora Marte en Cóndor Rojo: administra oxígeno, energía y comida, toma muestras, recupera cinco archivos inspirados en misiones de rovers de la NASA y aprende de investigaciones reales." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="minimal.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
 </head>
-
 <body>
-  <div id="scrollProgress"></div>
+<div id="scrollProgress"></div>
+<div class="top-strip">
+<span class="live-dot"></span>
+<span data-en="AN INDEPENDENT NASA SPACE APPS CHALLENGE 2026 PROJECT" data-es="PROYECTO INDEPENDIENTE PARA NASA SPACE APPS CHALLENGE 2026">AN INDEPENDENT NASA SPACE APPS CHALLENGE 2026 PROJECT</span>
+<span class="strip-right" data-en="EARTH → MARS" data-es="TIERRA → MARTE">EARTH → MARS</span>
+</div>
+<header class="site-header" id="top">
+<a class="brand" href="#top">
+<span class="brand-dot" aria-hidden="true"></span>
+<span>
 
-  <div class="top-strip">
-    <span class="live-dot"></span>
-    <span data-en="AN INDEPENDENT NASA SPACE APPS CHALLENGE 2026 PROJECT"
-          data-es="UN PROYECTO INDEPENDIENTE DE NASA SPACE APPS CHALLENGE 2026">
-      AN INDEPENDENT NASA SPACE APPS CHALLENGE 2026 PROJECT
-    </span>
-    <span class="strip-right">EARTH → MARS</span>
-  </div>
-
-  <header class="site-header" id="top">
-    <a href="#top" class="brand">
-      <img src="images/mars.png" alt="Mars" class="brand-icon-img">
-      <span>
         CÓNDOR<span class="accent">ROJO</span>
-        <small>ASTROSHARKS / 2026</small>
-      </span>
-    </a>
+<small>ASTROSHARKS / 2026</small>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-toggle" data-aria-label-en="Open navigation" data-aria-label-es="Abrir navegación" id="menuToggle" type="button">
 
-    <button class="menu-toggle" id="menuToggle" type="button"
-            aria-label="Open navigation" aria-expanded="false">
       ☰
+
     </button>
+<nav aria-label="Main navigation" class="main-nav" data-aria-label-en="Main navigation" data-aria-label-es="Navegación principal" id="mainNav">
+<a data-en="Mission" data-es="Misión" href="#mission">Mission</a>
+<a data-en="Experience" data-es="Experiencia" href="#experience">Experience</a>
+<a data-en="Mars Facts" data-es="Datos de Marte" href="#facts">Mars Facts</a>
+<a data-en="Radiation" data-es="Radiación" href="#radiation">Radiation</a>
+<a data-en="Science" data-es="Ciencia" href="#science">Science</a>
+<a data-en="Team" data-es="Equipo" href="#team">Team</a>
+<button class="language-switch" id="languageBtn" type="button">ES</button>
+<a class="nav-cta play-link" data-en="Play the Game" data-es="Jugar ahora" href="game/game.html">Play the Game</a>
+</nav>
+</header>
+<main>
+<!-- HERO — screenshot-first landing section -->
+<section aria-labelledby="heroTitle" class="hero hero-launch">
+<div class="hero-launch-inner reveal">
+<p class="hero-kicker" data-en="ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026" data-es="ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026">ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026</p>
+<h1 id="heroTitle">CÓNDOR <em>ROJO</em></h1>
+<p class="hero-launch-description" data-en="Explore Mars. Manage your resources. Recover five rover science archives." data-es="Explora Marte. Administra tus recursos. Recupera cinco archivos científicos de rovers.">Explore Mars. Manage your resources. Recover five rover science archives.</p>
+<div aria-label="Game screenshot preview" class="hero-game-frame" data-aria-label-en="Game screenshot preview" data-aria-label-es="Captura del videojuego">
+<div class="hero-game-topbar">
+<span><span class="hero-live-dot"></span> <span data-en="CÓNDOR ROJO / GAME SCREENSHOT" data-es="CÓNDOR ROJO / CAPTURA DEL JUEGO">CÓNDOR ROJO / GAME SCREENSHOT</span></span>
+<span>GODOT · 2D</span>
+</div>
+<img alt="Cóndor Rojo game title screen" class="hero-screenshot-image" data-alt-en="Cóndor Rojo game title screen" data-alt-es="Pantalla de inicio del videojuego Cóndor Rojo" fetchpriority="high" src="images/gameSC.png"/>
+</div>
+<div class="hero-launch-actions">
+<a class="btn hero-play-button play-link" data-en="▶ PLAY THE GAME" data-es="▶ JUGAR AHORA" href="game/game.html">▶ PLAY THE GAME</a>
+<a class="hero-secondary-link" data-en="Discover the mission ↓" data-es="Descubre la misión ↓" href="#mission">Discover the mission ↓</a>
+</div>
+<p class="hero-photo-credit">
+<span data-en="MARS BACKGROUND:" data-es="FONDO DE MARTE:">MARS BACKGROUND:</span>
+<a href="https://science.nasa.gov/photojournal/nasas-perseverance-mars-rover-surveys-crocodile-bridge/" rel="noopener noreferrer" target="_blank">NASA/JPL-Caltech/ASU/MSSS · PIA26699</a>
+</p>
+</div>
+</section>
+<div class="marquee">
+<div>
 
-    <nav id="mainNav" class="main-nav">
-      <a href="#mission" data-en="Mission" data-es="Misión">Mission</a>
-      <a href="#experience" data-en="Experience" data-es="Experiencia">Experience</a>
-      <a href="#facts" data-en="Mars Facts" data-es="Datos de Marte">Mars Facts</a>
-      <a href="#radiation" data-en="Radiation" data-es="Radiación">Radiation</a>
-      <a href="#science" data-en="Science" data-es="Ciencia">Science</a>
-      <a href="#team" data-en="Team" data-es="Equipo">Team</a>
-      <button id="languageBtn" class="language-switch" type="button">ES</button>
-      <a href="game/game.html" class="nav-cta play-link" data-en="Explore the Game" data-es="Explorar el juego">Explore the Game</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO — screenshot-first landing section -->
-    <section class="hero hero-launch" aria-labelledby="heroTitle">
-      <div class="hero-launch-inner reveal">
-        <p class="hero-kicker"
-           data-en="ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026"
-           data-es="ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026">
-          ASTROSHARKS · NASA SPACE APPS CHALLENGE 2026
-        </p>
-
-        <h1 id="heroTitle">CÓNDOR <em>ROJO</em></h1>
-
-        <p class="hero-launch-description"
-           data-en="Explore Mars. Recover rover knowledge. Make every decision count."
-           data-es="Explora Marte. Recupera el conocimiento de los rovers. Haz que cada decisión cuente.">
-          Explore Mars. Recover rover knowledge. Make every decision count.
-        </p>
-
-        <div class="hero-game-frame" aria-label="Game screenshot preview">
-          <div class="hero-game-topbar">
-            <span><span class="hero-live-dot"></span> CÓNDOR ROJO / GAME PREVIEW</span>
-            <span>GODOT · 2D</span>
-          </div>
-          <img class="hero-screenshot-image" src="images/gameSC.png"
-                  alt="Cóndor Rojo gameplay on Mars" fetchpriority="high">
-        </div>
-
-        <div class="hero-launch-actions">
-          <a class="btn hero-play-button play-link" href="game/game.html"
-             data-en="▶ PLAY THE GAME" data-es="▶ JUGAR AHORA">
-            ▶ PLAY THE GAME
-          </a>
-          <a class="hero-secondary-link" href="#mission"
-             data-en="Discover the mission ↓" data-es="Descubre la misión ↓">
-            Discover the mission ↓
-          </a>
-        </div>
-
-        <p class="hero-photo-credit">
-          <span data-en="MARS BACKGROUND:" data-es="FONDO DE MARTE:">MARS BACKGROUND:</span>
-          <a href="https://science.nasa.gov/photojournal/nasas-perseverance-mars-rover-surveys-crocodile-bridge/"
-             target="_blank" rel="noopener noreferrer">NASA/JPL-Caltech/ASU/MSSS · PIA26699</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="marquee">
-      <div>
         DISCOVER ✦ ADAPT ✦ SURVIVE ✦ EXPLORE ✦ LEARN ✦
+
         DISCOVER ✦ ADAPT ✦ SURVIVE ✦ EXPLORE ✦ LEARN ✦
+
       </div>
-    </div>
-
-    <!-- MISSION -->
-    <section class="section section-mission" id="mission">
-      <div class="section-heading reveal">
-        <div class="kicker">01 / THE MISSION</div>
-        <h2 data-en="Mars doesn't give second chances."
-            data-es="Marte no da segundas oportunidades.">
-          Mars doesn't give second chances.
-        </h2>
-        <p data-en="You are an astronaut on Mars. Explore the surface, retrieve five rover data archives, and complete science missions while managing oxygen and energy."
-           data-es="Eres un astronauta en Marte. Explora la superficie, recupera cinco archivos de datos de rovers y completa misiones científicas mientras administras el oxígeno y la energía.">
-          You are an astronaut on Mars. Explore the surface, retrieve five rover
-          data archives, and complete science missions while managing oxygen
-          and energy.
-        </p>
-      </div>
-
-      <div class="mission-grid">
-        <article class="panel challenge-panel reveal">
-          <div class="panel-label">THE CHALLENGE / 01</div>
-          <h3 data-en="ONE HOSTILE WORLD. MANY HUMAN PROBLEMS."
-              data-es="UN MUNDO HOSTIL. MUCHOS DESAFÍOS HUMANOS.">
-            ONE HOSTILE WORLD. MANY HUMAN PROBLEMS.
-          </h3>
-
-          <div class="challenge-item">
-            <span>01</span>
-            <div>
-              <h4 data-en="Limited oxygen" data-es="Oxígeno limitado">Limited oxygen</h4>
-              <p data-en="Every trip uses oxygen. Carrying a rover makes it run out faster."
-                 data-es="Cada viaje consume oxígeno. Cargar un rover hace que se agote más rápido.">
-                Every trip uses oxygen. RunningCarrying a rover makes it run out faster.
-              </p>
-            </div>
+</div>
+<!-- MISSION -->
+<section class="section section-mission" id="mission">
+<div class="section-heading reveal">
+<div class="kicker" data-en="01 / THE MISSION" data-es="01 / LA MISIÓN">01 / THE MISSION</div>
+<h2 data-en="Mars doesn't give second chances." data-es="Marte no da segundas oportunidades.">Mars doesn't give second chances.</h2>
+<p data-en="You are an astronaut on Mars. Establish an outpost, explore the surface, collect scientific samples, and recover five rover data archives while balancing oxygen, energy, and food." data-es="Eres un astronauta en Marte. Establece una base, explora la superficie, recoge muestras científicas y recupera cinco archivos de datos de rovers mientras equilibras oxígeno, energía y comida.">You are an astronaut on Mars. Establish an outpost, explore the surface, collect scientific samples, and recover five rover data archives while balancing oxygen, energy, and food.</p>
+</div>
+<div class="mission-grid">
+<article class="panel challenge-panel reveal">
+<div class="panel-label" data-en="THE CHALLENGE / 01" data-es="EL DESAFÍO / 01">THE CHALLENGE / 01</div>
+<h3 data-en="ONE HOSTILE WORLD. MANY HUMAN PROBLEMS." data-es="UN MUNDO HOSTIL. MUCHOS DESAFÍOS HUMANOS.">ONE HOSTILE WORLD. MANY HUMAN PROBLEMS.</h3>
+<div class="challenge-item">
+<span>01</span>
+<div>
+<h4 data-en="Limited oxygen" data-es="Oxígeno limitado">Limited oxygen</h4>
+<p data-en="Your suit uses oxygen during outdoor expeditions. Plan how far you can travel before returning to safety." data-es="Tu traje consume oxígeno durante las expediciones al exterior. Planea hasta dónde puedes llegar antes de regresar a un lugar seguro.">Your suit uses oxygen during outdoor expeditions. Plan how far you can travel before returning to safety.</p>
+</div>
+</div>
+<div class="challenge-item">
+<span>02</span>
+<div>
+<h4 data-en="Five rover archives" data-es="Cinco archivos de rovers">Five rover archives</h4>
+<p data-en="Locate and copy scientific archives from Sojourner, Spirit, Opportunity, Curiosity, and Perseverance. You do not transport the real rovers." data-es="Localiza y copia archivos científicos de Sojourner, Spirit, Opportunity, Curiosity y Perseverance. No transportas los rovers reales.">Locate and copy scientific archives from Sojourner, Spirit, Opportunity, Curiosity, and Perseverance. You do not transport the real rovers.</p>
+</div>
+</div>
+<div class="challenge-item">
+<span>03</span>
+<div>
+<h4 data-en="Scientific fieldwork" data-es="Trabajo científico de campo">Scientific fieldwork</h4>
+<p data-en="Collect mineral and ice samples, scan cave walls and lake sediments, and answer questions about NASA rover missions." data-es="Recoge muestras de minerales y hielo, escanea paredes de cuevas y sedimentos de lagos y responde preguntas sobre misiones de rovers de la NASA.">Collect mineral and ice samples, scan cave walls and lake sediments, and answer questions about NASA rover missions.</p>
+</div>
+</div>
+</article>
+<article class="panel solution-panel reveal">
+<div class="panel-label" data-en="OUR RESPONSE / 02" data-es="NUESTRA PROPUESTA / 02">OUR RESPONSE / 02</div>
+<div class="solution-symbol">
+            <img src="images/mars.png" class="section-mars-icon" alt="Mars" width="84" height="84" loading="lazy">
           </div>
+<h3 data-en="Learn through play. Survive through strategy." data-es="Aprende jugando. Sobrevive con estrategia.">Learn through play. Survive through strategy.</h3>
+<p data-en="Choose your starting kit, set up your outpost, clean dusty solar panels, grow food, and make decisions over a ten-sol mission. Each resource has a cost." data-es="Elige tu equipo inicial, instala tu base, limpia paneles solares cubiertos de polvo, cultiva alimentos y toma decisiones durante una misión de diez soles. Cada recurso tiene un costo.">Choose your starting kit, set up your outpost, clean dusty solar panels, grow food, and make decisions over a ten-sol mission. Each resource has a cost.</p>
+<a class="text-link" data-en="SEE THE EXPERIENCE ↗" data-es="DESCUBRE LA EXPERIENCIA ↗" href="#experience">SEE THE EXPERIENCE ↗</a>
+</article>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section class="section section-experience" id="experience">
+<div class="section-heading reveal">
+<div class="kicker" data-en="02 / THE EXPERIENCE" data-es="02 / LA EXPERIENCIA">02 / THE EXPERIENCE</div>
+<h2 data-en="One planet. Endless decisions." data-es="Un planeta. Infinitas decisiones.">One planet. Endless decisions.</h2>
+<p data-en="Explore real science through playable missions: maintain your base, plan expeditions, investigate Martian terrain, and recover rover archives." data-es="Explora ciencia real mediante misiones jugables: mantén tu base, planea expediciones, investiga el terreno marciano y recupera archivos de rovers.">Explore real science through playable missions: maintain your base, plan expeditions, investigate Martian terrain, and recover rover archives.</p>
+</div>
+<div class="experience-layout">
+<div class="game-preview reveal">
+<div class="preview-bar">
+<span class="live-dot"></span><span data-en="CÓNDOR ROJO // MISSION FEED" data-es="CÓNDOR ROJO // SEÑAL DE MISIÓN">CÓNDOR ROJO // MISSION FEED</span><span data-en="GAMEPLAY" data-es="JUGABILIDAD">GAMEPLAY</span>
+</div>
+<div class="preview-art"><img alt="Pixel-art gameplay showing the astronaut exploring a Martian outpost" class="preview-gameplay-image" data-alt-en="Pixel-art gameplay showing the astronaut exploring a Martian outpost" data-alt-es="Captura del juego en pixel art con un astronauta explorando una base marciana" loading="lazy" src="images/preview.png"/></div>
+<div class="preview-caption" data-en="ACTUAL GAMEPLAY — MARTIAN OUTPOST" data-es="CAPTURA REAL — BASE MARCIANA">ACTUAL GAMEPLAY — MARTIAN OUTPOST</div>
+</div>
+<div class="mission-steps reveal">
+<div class="step">
+<span class="step-number">01</span>
+<div>
+<h3 data-en="Prepare your outpost" data-es="Prepara tu base">Prepare your outpost</h3>
+<p data-en="Choose a starting kit, place your modules, and check the oxygen, energy, and food you will need." data-es="Elige un equipo inicial, coloca los módulos de tu base y revisa el oxígeno, la energía y la comida que necesitarás.">Choose a starting kit, place your modules, and check the oxygen, energy, and food you will need.</p>
+</div>
+</div>
+<div class="step">
+<span class="step-number">02</span>
+<div>
+<h3 data-en="Explore and investigate" data-es="Explora e investiga">Explore and investigate</h3>
+<p data-en="Clean solar panels, investigate minerals and water ice, visit a cave, and explore an ancient lakebed." data-es="Limpia paneles solares, investiga minerales y hielo de agua, visita una cueva y explora el lecho de un lago antiguo.">Clean solar panels, investigate minerals and water ice, visit a cave, and explore an ancient lakebed.</p>
+</div>
+</div>
+<div class="step">
+<span class="step-number">03</span>
+<div>
+<h3 data-en="Recover five rover archives" data-es="Recupera cinco archivos de rovers">Recover five rover archives</h3>
+<p data-en="Copy each archive, read its NASA mission facts, and answer a question to complete the recovery." data-es="Copia cada archivo, lee los datos sobre su misión de la NASA y responde una pregunta para completar la recuperación.">Copy each archive, read its NASA mission facts, and answer a question to complete the recovery.</p>
+</div>
+</div>
+<div class="experience-callout">
+<span data-en="ASTROSHARKS / MARS EXPEDITION" data-es="ASTROSHARKS / EXPEDICIÓN A MARTE">ASTROSHARKS / MARS EXPEDITION</span>
+<strong data-en="THE MISSION IS WAITING." data-es="LA MISIÓN TE ESPERA.">THE MISSION IS WAITING.</strong>
+<a class="play-link" data-en="PLAY THE GAME ↗" data-es="JUGAR AHORA ↗" href="game/game.html">PLAY THE GAME ↗</a>
+</div>
+</div>
+</div>
+</section>
+<!-- MARS FACTS -->
+<section class="section section-facts" id="facts">
+<div class="section-heading reveal">
+<div class="kicker" data-en="03 / THE RED PLANET" data-es="03 / EL PLANETA ROJO">03 / THE RED PLANET</div>
+<h2 data-en="Mars is full of surprises." data-es="Marte está lleno de sorpresas.">Mars is full of surprises.</h2>
+<p data-en="Six real facts behind the world you explore." data-es="Seis datos reales sobre el mundo que exploras.">Six real facts behind the world you explore.</p>
+</div>
+<div class="facts-grid">
+<article class="fact-card reveal">
+<strong>−63°C</strong>
+<h3 data-en="Average temperature" data-es="Temperatura promedio">Average temperature</h3>
+<p data-en="Mars is extremely cold, with temperatures that vary greatly." data-es="Marte es extremadamente frío y sus temperaturas varían mucho.">Mars is extremely cold, with temperatures that vary greatly.</p>
+</article>
+<article class="fact-card reveal">
+<strong>38%</strong>
+<h3 data-en="Earth's gravity" data-es="Gravedad de la Tierra">Earth's gravity</h3>
+<p data-en="Gravity on Mars is about 38% of Earth's." data-es="La gravedad de Marte es aproximadamente el 38% de la terrestre.">Gravity on Mars is about 38% of Earth's.</p>
+</article>
+<article class="fact-card reveal">
+<strong>687</strong>
+<h3 data-en="Days in a Mars year" data-es="Días en un año marciano">Days in a Mars year</h3>
+<p data-en="One orbit around the Sun takes 687 Earth days." data-es="Una vuelta alrededor del Sol dura 687 días terrestres.">One orbit around the Sun takes 687 Earth days.</p>
+</article>
+<article class="fact-card reveal">
+<strong>24h 39m</strong>
+<h3 data-en="One Martian sol" data-es="Un sol marciano">One Martian sol</h3>
+<p data-en="A Martian solar day is a little longer than an Earth day." data-es="Un día solar marciano es un poco más largo que uno terrestre.">A Martian solar day is a little longer than an Earth day.</p>
+</article>
+<article class="fact-card reveal">
+<strong>~95%</strong>
+<h3 data-en="Carbon dioxide" data-es="Dióxido de carbono">Carbon dioxide</h3>
+<p data-en="Most of Mars's thin atmosphere is carbon dioxide." data-es="La mayor parte de la delgada atmósfera marciana es dióxido de carbono.">Most of Mars's thin atmosphere is carbon dioxide.</p>
+</article>
+<article class="fact-card reveal">
+<strong>02</strong>
+<h3 data-en="Natural moons" data-es="Lunas naturales">Natural moons</h3>
+<p data-en="Mars has two moons: Phobos and Deimos." data-es="Marte tiene dos lunas: Fobos y Deimos.">Mars has two moons: Phobos and Deimos.</p>
+</article>
+</div>
+</section>
+<!-- SURVIVAL / INTI -->
+<section class="section companions-section" id="companions">
+<div class="section-heading reveal">
+<div class="kicker" data-en="04 / YOUR EXPEDITION" data-es="04 / TU EXPEDICIÓN">04 / YOUR EXPEDITION</div>
+<h2 data-en="You're not exploring alone." data-es="No estás explorando solo.">You're not exploring alone.</h2>
+<p data-en="Meet the systems and companion that guide your survival and scientific exploration." data-es="Conoce los sistemas y al compañero que te guían durante la supervivencia y la exploración científica.">Meet the systems and companion that guide your survival and scientific exploration.</p>
+</div>
+<div class="companion-grid">
+<article class="companion-card reveal">
+<div class="companion-image">
+<img alt="Cóndor Rojo pixel-art survival resource icon" data-alt-en="Cóndor Rojo pixel-art survival resource icon" data-alt-es="Icono de recursos de supervivencia de Cóndor Rojo en pixel art" loading="lazy" src="images/survivalprev.png"/>
+</div>
+<h3 data-en="SURVIVAL" data-es="SUPERVIVENCIA">SURVIVAL</h3>
+<p data-en="Balance oxygen, energy, and food. Plan meals and expeditions so your outpost can last ten sols." data-es="Equilibra oxígeno, energía y comida. Planifica las comidas y expediciones para mantener tu base durante diez soles.">Balance oxygen, energy, and food. Plan meals and expeditions so your outpost can last ten sols.</p>
+</article>
+<article class="companion-card reveal">
+<div class="companion-image">
+<img alt="Illustration of a Mars rover" data-alt-en="Illustration of a Mars rover" data-alt-es="Ilustración de un rover marciano" loading="lazy" src="images/curiosity.png"/>
+</div>
+<h3 data-en="EXPLORATION" data-es="EXPLORACIÓN">EXPLORATION</h3>
+<p data-en="Study Martian landscapes, collect samples, and copy scientific archives from five NASA rovers." data-es="Estudia paisajes marcianos, recoge muestras y copia archivos científicos de cinco rovers de la NASA.">Study Martian landscapes, collect samples, and copy scientific archives from five NASA rovers.</p>
+</article>
+<article class="companion-card reveal">
+<div class="companion-image">
+<img alt="INTI, the robotic companion in Cóndor Rojo" data-alt-en="INTI, the robotic companion in Cóndor Rojo" data-alt-es="INTI, el compañero robótico de Cóndor Rojo" loading="lazy" src="images/inti.png"/>
+</div>
+<h3 data-en="INTI THE ROBOT" data-es="INTI, EL ROBOT">INTI THE ROBOT</h3>
+<p data-en="Your robotic companion helps explain discoveries, mission objectives, and survival decisions." data-es="Tu compañero robótico te ayuda a comprender descubrimientos, objetivos de misión y decisiones de supervivencia.">Your robotic companion helps explain discoveries, mission objectives, and survival decisions.</p>
+</article>
+</div>
+</section>
+<!-- SCIENCE — THE GAME FIRST, NASA RESEARCH BEHIND THE MISSIONS -->
+<section class="section section-science" id="science">
+<div class="science-layout">
+<!-- Authentic NASA orbital view. Keep your current Jezero image. -->
+<figure class="science-art science-photo reveal">
+<img alt="Real orbital image of the Jezero Crater rim on Mars" class="science-real-image" data-alt-en="Real orbital image of the Jezero Crater rim on Mars" data-alt-es="Vista orbital real del borde del cráter Jezero en Marte" decoding="async" loading="lazy" src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26/pia26402/PIA26402.jpg"/>
+<figcaption class="science-image-caption">
+<span data-en="REAL MARS · JEZERO CRATER" data-es="MARTE REAL · CRÁTER JEZERO">REAL MARS · JEZERO CRATER</span>
+<a href="https://science.nasa.gov/photojournal/perseverances-location-at-the-base-of-jezero-craters-rim/" rel="noopener noreferrer" target="_blank">
 
-          <div class="challenge-item">
-            <span>02</span>
-            <div>
-              <h4 data-en="Five rover archives" data-es="Cinco archivos de rovers">Five rover archives</h4>
-              <p data-en="Find archives inspired by NASA rover missions and recover their discoveries."
-                 data-es="Encuentra archivos inspirados en misiones de rovers de NASA y recupera sus descubrimientos.">
-                Find archives inspired by NASA rover missions and recover their discoveries.
-              </p>
-            </div>
-          </div>
-
-          <div class="challenge-item">
-            <span>03</span>
-            <div>
-              <h4 data-en="Scientific decisions" data-es="Decisiones científicas">Scientific decisions</h4>
-              <p data-en="Read rover archives and answer science questions to preserve what they discovered."
-                 data-es="Lee los archivos de los rovers y responde preguntas científicas para conservar sus descubrimientos.">
-                Read rover archives, collect samples, and analyze the data to preserve what they discovered.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="panel solution-panel reveal">
-          <div class="panel-label">OUR RESPONSE / 02</div>
-          <div class="solution-symbol">
-           <img src="images/mars.png" alt="Mars" class="section-mars-icon">
-            </div>
-          <h3 data-en="Learn through play. Survive through strategy."
-              data-es="Aprende jugando. Sobrevive con estrategia.">
-            Learn through play. Survive through strategy.
-          </h3>
-          <p data-en="Collect iron, build a vehicle, manage oxygen, and discover what real Mars exploration teaches us."
-             data-es="Recolecta hierro, construye un vehículo, administra el oxígeno y descubre qué nos enseña la exploración real de Marte.">
-            Collect samples, recover the rovers, manage oxygen, energy and hunger,
-            and discover what real Mars exploration teaches us.
-          </p>
-          <a href="#experience" class="text-link"
-             data-en="SEE THE EXPERIENCE ↗" data-es="VER LA EXPERIENCIA ↗">
-            SEE THE EXPERIENCE ↗
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section section-experience" id="experience">
-      <div class="section-heading reveal">
-        <div class="kicker">02 / THE EXPERIENCE</div>
-        <h2 data-en="One planet. Endless decisions."
-            data-es="Un planeta. Infinitas decisiones.">
-          One planet. Endless decisions.
-        </h2>
-        <p data-en="Recover rover archives, complete your expedition, and turn discoveries into knowledge."
-           data-es="Recupera archivos de rovers, completa tu expedición y convierte descubrimientos en conocimiento.">
-          Recover the rovers, complete your expedition,
-          and turn discoveries into knowledge.
-        </p>
-      </div>
-
-      <div class="experience-layout">
-        <div class="game-preview reveal">
-          <div class="preview-bar">
-            <span class="live-dot"></span>
-            CÓNDOR ROJO // MISSION FEED
-            <span>LIVE PREVIEW</span>
-          </div>
-
-          <div class="preview-art">
-            <div class="preview-sky"></div>
-            <div class="preview-hill hill-back"></div>
-            <div class="preview-hill hill-front"></div>
-            <div class="preview-base">BASE 01</div>
-            <div class="preview-rover">▣</div>
-            <div class="preview-astronaut">♟</div>
-            <div class="preview-hud">O₂ 78% &nbsp; | &nbsp; ROVERS 0/5</div>
-          </div>
-
-          <div class="preview-caption"
-               data-en="CONCEPT PREVIEW — NOT ACTUAL GAMEPLAY"
-               data-es="VISTA CONCEPTUAL — NO ES UNA CAPTURA DEL JUEGO">
-            CONCEPT PREVIEW — NOT ACTUAL GAMEPLAY
-          </div>
-        </div>
-
-        <div class="mission-steps reveal">
-          <div class="step">
-            <span class="step-number">01</span>
-            <div>
-              <h3 data-en="Prepare your expedition" data-es="Prepara tu expedición">Prepare your expedition</h3>
-              <p data-en="Check your oxygen and get ready to explore."
-                 data-es="Revisa tu oxígeno y prepárate para explorar.">
-                Check your oxygen and get ready to explore.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">02</span>
-            <div>
-              <h3 data-en="Find the five archives" data-es="Encuentra los cinco archivos">Find the five archives</h3>
-              <p data-en="Explore Mars, collect iron, and build a vehicle."
-                 data-es="Explora Marte, recolecta hierro y construye un vehículo.">
-                Explore Mars, collect iron, and build a vehicle.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span class="step-number">03</span>
-            <div>
-              <h3 data-en="Save scientific discoveries" data-es="Guarda descubrimientos científicos">Save scientific discoveries</h3>
-              <p data-en="Copy each rover archive and answer science questions."
-                 data-es="Copia cada archivo de rover y responde preguntas científicas.">
-                Copy each rover archive and learn about their missions.
-              </p>
-            </div>
-          </div>
-
-          <div class="experience-callout">
-            <span>ASTROSHARKS / MARS EXPEDITION</span>
-            <strong data-en="THE MISSION IS WAITING."
-                    data-es="LA MISIÓN TE ESPERA.">
-              THE MISSION IS WAITING.
-            </strong>
-            <a class="play-link" href="game/game.html" data-en="EXPLORE THE GAME ↗"
-               data-es="EXPLORAR EL JUEGO ↗">EXPLORE THE GAME ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MARS FACTS -->
-    <section class="section section-facts" id="facts">
-      <div class="section-heading reveal">
-        <div class="kicker">03 / THE RED PLANET</div>
-        <h2 data-en="Mars is full of surprises."
-            data-es="Marte está lleno de sorpresas.">
-          Mars is full of surprises.
-        </h2>
-        <p data-en="Six facts that make Mars an incredible place to explore."
-           data-es="Seis datos que hacen de Marte un lugar increíble para explorar.">
-          Six facts that make Mars an incredible place to explore.
-        </p>
-      </div>
-
-      <div class="facts-grid">
-        <article class="fact-card reveal">
-          <strong>−63°C</strong>
-          <h3 data-en="Average temperature" data-es="Temperatura promedio">Average temperature</h3>
-          <p data-en="Mars is extremely cold, with temperatures that vary greatly."
-             data-es="Marte es extremadamente frío y sus temperaturas varían mucho.">
-            Mars is extremely cold, with temperatures that vary greatly.
-          </p>
-        </article>
-
-        <article class="fact-card reveal">
-          <strong>38%</strong>
-          <h3 data-en="Earth's gravity" data-es="Gravedad de la Tierra">Earth's gravity</h3>
-          <p data-en="Gravity on Mars is about 38% of Earth's."
-             data-es="La gravedad de Marte es aproximadamente el 38% de la terrestre.">
-            Gravity on Mars is about 38% of Earth's.
-          </p>
-        </article>
-
-        <article class="fact-card reveal">
-          <strong>687</strong>
-          <h3 data-en="Days in a Mars year" data-es="Días en un año marciano">Days in a Mars year</h3>
-          <p data-en="One orbit around the Sun takes 687 Earth days."
-             data-es="Una vuelta alrededor del Sol dura 687 días terrestres.">
-            One orbit around the Sun takes 687 Earth days.
-          </p>
-        </article>
-
-        <article class="fact-card reveal">
-          <strong>24h 39m</strong>
-          <h3 data-en="One Martian sol" data-es="Un sol marciano">One Martian sol</h3>
-          <p data-en="A Martian solar day is a little longer than an Earth day."
-             data-es="Un día solar marciano es un poco más largo que uno terrestre.">
-            A Martian solar day is a little longer than an Earth day.
-          </p>
-        </article>
-
-        <article class="fact-card reveal">
-          <strong>~95%</strong>
-          <h3 data-en="Carbon dioxide" data-es="Dióxido de carbono">Carbon dioxide</h3>
-          <p data-en="Most of Mars's thin atmosphere is carbon dioxide."
-             data-es="La mayor parte de la delgada atmósfera marciana es dióxido de carbono.">
-            Most of Mars's thin atmosphere is carbon dioxide.
-          </p>
-        </article>
-
-        <article class="fact-card reveal">
-          <strong>02</strong>
-          <h3 data-en="Natural moons" data-es="Lunas naturales">Natural moons</h3>
-          <p data-en="Mars has two moons: Phobos and Deimos."
-             data-es="Marte tiene dos lunas: Fobos y Deimos.">
-            Mars has two moons: Phobos and Deimos.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SURVIVAL / INTI -->
-    <section class="section companions-section" id="companions">
-      <div class="section-heading reveal">
-        <div class="kicker">04 / YOUR EXPEDITION</div>
-        <h2 data-en="You're not exploring alone."
-            data-es="No estás explorando solo.">
-          You're not exploring alone.
-        </h2>
-        <p data-en="Meet the characters and challenges of Cóndor Rojo."
-           data-es="Conoce a los personajes y desafíos de Cóndor Rojo.">
-          Meet the characters and challenges of Cóndor Rojo.
-        </p>
-      </div>
-
-      <div class="companion-grid">
-        <article class="companion-card reveal">
-          <div class="companion-image">
-            <img src="images/survivalprev.png" alt="Survival pixel art" loading="lazy">
-          </div>
-          <h3>SURVIVAL</h3>
-          <p data-en="Keep your oxygen levels safe and make every resource count."
-             data-es="Cuida tus niveles de oxígeno y aprovecha cada recurso.">
-            Keep your oxygen levels safe and make every resource count and other samples.
-          </p>
-        </article>
-
-        <article class="companion-card reveal">
-          <div class="companion-image">
-            <img src="images/curiosity.png" alt="Astronaut pixel art" loading="lazy">
-          </div>
-          <h3>EXPLORATION</h3>
-          <p data-en="Explore the Martian landscape for five rover archives."
-             data-es="Explora el paisaje marciano en busca de cinco archivos de rovers.">
-            Explore the Martian landscape for five rover archives.
-          </p>
-        </article>
-
-        <article class="companion-card reveal">
-          <div class="companion-image">
-            <img src="images/inti.png" alt="INTI robot pixel art" loading="lazy">
-          </div>
-          <h3>INTI THE ROBOT</h3>
-          <p data-en="Meet INTI, your robotic companion on the Red Planet."
-             data-es="Conoce a INTI, tu compañero robótico en el planeta rojo.">
-            Meet INTI, your robotic companion on the Red Planet.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SCIENCE — THE GAME FIRST, NASA RESEARCH BEHIND THE MISSIONS -->
-    <section class="section section-science" id="science">
-      <div class="science-layout">
-
-        <!-- Authentic NASA orbital view. Keep your current Jezero image. -->
-        <figure class="science-art science-photo reveal">
-          <img
-            class="science-real-image"
-            src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26/pia26402/PIA26402.jpg"
-            alt="Real orbital image of the Jezero Crater rim on Mars"
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption class="science-image-caption">
-            <span data-en="REAL MARS · JEZERO CRATER"
-                  data-es="MARTE REAL · CRÁTER JEZERO">REAL MARS · JEZERO CRATER</span>
-            <a href="https://science.nasa.gov/photojournal/perseverances-location-at-the-base-of-jezero-craters-rim/"
-               target="_blank" rel="noopener noreferrer">
               NASA/JPL-Caltech/University of Arizona/ESA ↗
+
             </a>
-          </figcaption>
-        </figure>
+</figcaption>
+</figure>
+<div class="science-copy reveal">
+<div class="kicker" data-en="05 / THE SCIENCE BEHIND THE GAME" data-es="05 / LA CIENCIA DETRÁS DEL JUEGO">05 / THE SCIENCE BEHIND THE GAME</div>
+<h2 data-en="Play the mission. Discover the science." data-es="Juega la misión. Descubre la ciencia.">Play the mission. Discover the science.</h2>
+<p data-en="Every activity in Cóndor Rojo connects a playable decision to scientific questions explored by NASA. The Mars map is stylized; real mission locations are much farther apart." data-es="Cada actividad de Cóndor Rojo conecta una decisión jugable con preguntas científicas que investiga la NASA. El mapa de Marte es estilizado; los lugares reales de las misiones están mucho más separados.">Every activity in Cóndor Rojo connects a playable decision to scientific questions explored by NASA. The Mars map is stylized; real mission locations are much farther apart.</p>
+<div class="game-science-list">
+<article class="game-science-item">
+<span class="game-science-index">01</span>
+<div>
+<h3 data-en="Recover rover knowledge" data-es="Recupera el conocimiento de los rovers">Recover rover knowledge</h3>
+<p data-en="In the game: copy the archives of Sojourner, Spirit, Opportunity, Curiosity, and Perseverance, then answer a mission question. In reality: each NASA rover explored a different part of Mars." data-es="En el juego: copia archivos de Sojourner, Spirit, Opportunity, Curiosity y Perseverance y responde una pregunta sobre cada misión. En realidad: cada rover de la NASA exploró una región distinta de Marte.">In the game: copy the archives of Sojourner, Spirit, Opportunity, Curiosity, and Perseverance, then answer a mission question. In reality: each NASA rover explored a different part of Mars.</p>
+<a data-en="NASA source: Opportunity's mission ↗" data-es="Fuente NASA: misión Opportunity ↗" href="https://science.nasa.gov/mission/mer-opportunity/" rel="noopener noreferrer" target="_blank">NASA source: Opportunity's mission ↗</a>
+</div>
+</article>
+<article class="game-science-item">
+<span class="game-science-index">02</span>
+<div>
+<h3 data-en="Keep solar power flowing" data-es="Mantén la energía solar">Keep solar power flowing</h3>
+<p data-en="In the game: clean dust from the solar panel to restore power. NASA connection: during the 2018 Martian dust storm, Opportunity's solar panels received too little sunlight." data-es="En el juego: limpia el polvo del panel solar para recuperar energía. Conexión NASA: durante la tormenta de polvo de 2018 en Marte, los paneles de Opportunity recibieron muy poca luz solar.">In the game: clean dust from the solar panel to restore power. NASA connection: during the 2018 Martian dust storm, Opportunity's solar panels received too little sunlight.</p>
+<a data-en="NASA source: Dust and solar power ↗" data-es="Fuente NASA: polvo y energía solar ↗" href="https://science.nasa.gov/mission/mer-opportunity/" rel="noopener noreferrer" target="_blank">NASA source: Dust and solar power ↗</a>
+</div>
+</article>
+<article class="game-science-item">
+<span class="game-science-index">03</span>
+<div>
+<h3 data-en="Investigate an ancient lakebed" data-es="Investiga el lecho de un lago antiguo">Investigate an ancient lakebed</h3>
+<p data-en="In the game: collect clay and scan sediment layers, learning why a possible biosignature is not proof of life. NASA connection: Perseverance studies the ancient environment of Jezero Crater." data-es="En el juego: recoge arcilla y escanea capas de sedimentos para aprender por qué una posible biofirma no prueba que hubo vida. Conexión NASA: Perseverance investiga el antiguo ambiente del cráter Jezero.">In the game: collect clay and scan sediment layers, learning why a possible biosignature is not proof of life. NASA connection: Perseverance studies the ancient environment of Jezero Crater.</p>
+<a data-en="NASA source: Jezero discoveries ↗" data-es="Fuente NASA: descubrimientos en Jezero ↗" href="https://science.nasa.gov/mission/mars-2020-perseverance/science-highlights/" rel="noopener noreferrer" target="_blank">NASA source: Jezero discoveries ↗</a>
+</div>
+</article>
+</div>
+<p class="science-dataset-note" data-en="NASA connection: the game includes curated historical data from DONKI, JPL Horizons, OSDR/RadLab and Mars Trek. These are offline references, not live measurements." data-es="Conexión NASA: el juego incluye datos históricos seleccionados de DONKI, JPL Horizons, OSDR/RadLab y Mars Trek. Son referencias sin conexión, no mediciones en tiempo real.">NASA connection: the game includes curated historical data from DONKI, JPL Horizons, OSDR/RadLab and Mars Trek. These are offline references, not live measurements.</p><div class="game-science-actions">
+<a class="btn btn-primary play-link" data-en="▶ PLAY THE GAME" data-es="▶ JUGAR AHORA" href="game/game.html">▶ PLAY THE GAME</a>
+<a class="science-secondary-link" data-en="Explore real terrain in NASA Mars Trek ↗" data-es="Explora el terreno real en NASA Mars Trek ↗" href="https://trek.nasa.gov/mars/" rel="noopener noreferrer" target="_blank">Explore real terrain in NASA Mars Trek ↗</a>
+</div>
+</div>
+</div>
+</section>
+<!-- RADIATION & SHIELDING — NASA SCIENCE + PROPOSED GAME DESIGN -->
+<section aria-labelledby="radiationTitle" class="section section-radiation" id="radiation">
+<div class="section-heading reveal">
+<div class="kicker" data-en="06 / RADIATION &amp; SHIELDING" data-es="06 / RADIACIÓN Y BLINDAJE">06 / RADIATION &amp; SHIELDING</div>
+<h2 data-en="A solar storm changes everything." data-es="Una tormenta solar lo cambia todo." id="radiationTitle">A solar storm changes everything.</h2>
+<p data-en="In Cóndor Rojo, space-weather warnings and shelter decisions affect simulated radiation exposure. The scenarios draw on historical NASA observations, with simplified in-game doses." data-es="En Cóndor Rojo, las alertas del clima espacial y las decisiones de refugio afectan la exposición simulada a la radiación. Los escenarios se inspiran en observaciones históricas de la NASA, con dosis simplificadas para el juego.">In Cóndor Rojo, space-weather warnings and shelter decisions affect simulated radiation exposure. The scenarios draw on historical NASA observations, with simplified in-game doses.</p>
+</div>
+<div class="radiation-layout">
+<figure class="radiation-photo reveal">
+<!-- Authentic NASA Curiosity Navcam image, PIA26302 (May 20, 2024).*
 
-        <div class="science-copy reveal">
-          <div class="kicker" data-en="05 / THE SCIENCE BEHIND THE GAME"
-               data-es="05 / LA CIENCIA DETRÁS DEL JUEGO">
-            05 / THE SCIENCE BEHIND THE GAME
-          </div>
+*               To self-host, download the NASA JPEG and use images/nasa-radiation.jpg. -->
+<img alt="Black-and-white Mars landscape recorded by Curiosity's navigation camera during a solar storm; white specks were caused by particles hitting the camera detector" data-alt-en="Black-and-white Mars landscape recorded by Curiosity's navigation camera during a solar storm; white specks were caused by particles hitting the camera detector" data-alt-es="Paisaje de Marte en blanco y negro observado por Curiosity durante una tormenta solar de 2024; las partículas produjeron puntos en la imagen" decoding="async" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26302/PIA26302.jpg"/>
+<figcaption class="radiation-photo-caption">
+<span data-en="CURIOSITY · 20 MAY 2024" data-es="CURIOSITY · 20 DE MAYO DE 2024">CURIOSITY · 20 MAY 2024</span>
+<p data-en="Bright specks in this rover image are camera artifacts from energetic charged particles, not radiation visibly floating over the landscape." data-es="Los puntos brillantes de esta imagen del rover son artefactos de cámara causados por partículas cargadas de alta energía; no es radiación visible flotando sobre el paisaje.">Bright specks in this rover image are camera artifacts from energetic charged particles, not radiation visibly floating over the landscape.</p>
+<a href="https://science.nasa.gov/photojournal/curiosity-sees-streaks-and-specks-during-2024-solar-storm/" rel="noopener noreferrer" target="_blank">
 
-          <h2 data-en="Play the mission. Discover the science."
-              data-es="Juega la misión. Descubre la ciencia.">
-            Play the mission. Discover the science.
-          </h2>
-
-          <p data-en="Every challenge in Cóndor Rojo is an opportunity to explore a real question NASA scientists and engineers investigate. Here's how the gameplay connects to the research."
-             data-es="Cada desafío de Cóndor Rojo es una oportunidad para explorar una pregunta real que investigan los científicos e ingenieros de NASA. Así se conecta el juego con la investigación.">
-            Every challenge in Cóndor Rojo is an opportunity to explore a real
-            question NASA scientists and engineers investigate. Here's how the
-            gameplay connects to the research.
-          </p>
-
-          <div class="game-science-list">
-            <article class="game-science-item">
-              <span class="game-science-index">01</span>
-              <div>
-                <h3 data-en="Recover rover knowledge"
-                    data-es="Recupera el conocimiento de los rovers">Recover rover knowledge</h3>
-                <p data-en="In the game: find five rover archives, recover their data, and answer science questions. In reality: NASA's rovers studied Mars at different landing sites."
-                   data-es="En el juego: encuentra cinco archivos de rovers, recupera sus datos y responde preguntas científicas. En la realidad: los rovers de NASA estudiaron Marte en distintos lugares.">
-                  In the game: find five rover archives, recover their data, and
-                  learn about mars. In reality: NASA's rovers studied Mars
-                  at different landing sites.
-                </p>
-                <a href="https://science.nasa.gov/mission/mer-opportunity/"
-                   target="_blank" rel="noopener noreferrer"
-                   data-en="NASA source: Opportunity's mission ↗"
-                   data-es="Fuente NASA: misión Opportunity ↗">
-                  NASA source: Opportunity's mission ↗
-                </a>
-              </div>
-            </article>
-
-            <article class="game-science-item">
-              <span class="game-science-index">02</span>
-              <div>
-                <h3 data-en="Keep your solar panels working"
-                    data-es="Mantén activos los paneles solares">Keep your solar panels working</h3>
-                <p data-en="In the game: remove dust to restore energy. NASA connection: the 2018 Martian dust storm blocked sunlight from Opportunity's solar panels."
-                   data-es="En el juego: elimina el polvo para recuperar energía. Conexión NASA: la tormenta de polvo marciana de 2018 bloqueó la luz solar de los paneles de Opportunity.">
-                  In the game: remove dust to restore energy. NASA connection:
-                  the 2018 Martian dust storm blocked sunlight from Opportunity's solar panels.
-                </p>
-                <a href="https://science.nasa.gov/mission/mer-opportunity/"
-                   target="_blank" rel="noopener noreferrer"
-                   data-en="NASA source: Dust and solar power ↗"
-                   data-es="Fuente NASA: polvo y energía solar ↗">
-                  NASA source: Dust and solar power ↗
-                </a>
-              </div>
-            </article>
-
-            <article class="game-science-item">
-              <span class="game-science-index">03</span>
-              <div>
-                <h3 data-en="Investigate an ancient lakebed"
-                    data-es="Investiga el lecho de un lago antiguo">Investigate an ancient lakebed</h3>
-                <p data-en="In the game: collect clay and scan sediment layers. NASA connection: Perseverance studies Jezero's ancient river delta to understand its history and search for possible signs of past life."
-                   data-es="En el juego: recoge arcilla y escanea capas de sedimentos. Conexión NASA: Perseverance investiga el antiguo delta fluvial de Jezero para comprender su historia y buscar posibles señales de vida pasada.">
-                  In the game: collect clay and scan sediment layers. NASA connection:
-                  Perseverance studies Jezero's ancient river delta to understand its
-                  history and search for possible signs of past life.
-                </p>
-                <a href="https://science.nasa.gov/mission/mars-2020-perseverance/science-highlights/"
-                   target="_blank" rel="noopener noreferrer"
-                   data-en="NASA source: Jezero discoveries ↗"
-                   data-es="Fuente NASA: descubrimientos en Jezero ↗">
-                  NASA source: Jezero discoveries ↗
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <div class="game-science-actions">
-            <a class="btn btn-primary play-link" href="game/game.html"
-               data-en="▶ PLAY THE GAME" data-es="▶ JUGAR AHORA">▶ PLAY THE GAME</a>
-            <a class="science-secondary-link" href="https://trek.nasa.gov/mars/"
-               target="_blank" rel="noopener noreferrer"
-               data-en="Explore real terrain in NASA Mars Trek ↗"
-               data-es="Explora el terreno real en NASA Mars Trek ↗">
-              Explore real terrain in NASA Mars Trek ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RADIATION & SHIELDING — NASA SCIENCE + PROPOSED GAME DESIGN -->
-    <section class="section section-radiation" id="radiation" aria-labelledby="radiationTitle">
-      <div class="section-heading reveal">
-        <div class="kicker">06 / RADIATION &amp; SHIELDING</div>
-        <h2 id="radiationTitle"
-            data-en="A solar storm changes everything."
-            data-es="Una tormenta solar lo cambia todo.">
-          A solar storm changes everything.
-        </h2>
-        <p data-en="In Cóndor Rojo, warnings and shelter decisions help you navigate radiation hazards. This mechanic draws on NASA observations of space weather and Mars radiation."
-           data-es="En Cóndor Rojo, las alertas y las decisiones de refugio te ayudan a enfrentar los riesgos de la radiación. Esta mecánica se basa en observaciones de NASA sobre el clima espacial y la radiación en Marte.">
-          In Cóndor Rojo, warnings and shelter decisions help you navigate radiation
-          hazards. This mechanic draws on NASA observations of space weather
-          and Mars radiation.
-        </p>
-      </div>
-
-      <div class="radiation-layout">
-        <figure class="radiation-photo reveal">
-          <!-- Authentic NASA Curiosity Navcam image, PIA26302 (May 20, 2024).
-               To self-host, download the NASA JPEG and use images/nasa-radiation.jpg. -->
-          <img
-            src="https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26302/PIA26302.jpg"
-            alt="Black-and-white Mars landscape recorded by Curiosity's navigation camera during a solar storm; white specks were caused by particles hitting the camera detector"
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption class="radiation-photo-caption">
-            <span data-en="NASA'S CURIOSITY ROVER · 20 MAY 2024"
-                  data-es="ROVER CURIOSITY DE NASA · 20 MAYO 2024">
-              NASA'S CURIOSITY ROVER · 20 MAY 2024
-            </span>
-            <p data-en="The bright specks are camera artifacts caused by charged particles during a solar storm — not visible radiation floating in the air."
-               data-es="Los puntos brillantes son artefactos de la cámara causados por partículas cargadas durante una tormenta solar; no son radiación visible flotando en el aire.">
-              The bright specks are camera artifacts caused by charged
-              particles during a solar storm — not visible radiation
-              floating in the air.
-            </p>
-            <a href="https://science.nasa.gov/photojournal/curiosity-sees-streaks-and-specks-during-2024-solar-storm/"
-               target="_blank" rel="noopener noreferrer">
               NASA/JPL-Caltech · PIA26302 ↗
+
             </a>
-          </figcaption>
-        </figure>
-
-        <div class="radiation-explainer reveal">
-          <div class="radiation-fact">
-            <span class="radiation-fact-index">01 / GCR</span>
-            <div>
-              <h3 data-en="Cosmic rays are persistent"
-                  data-es="Los rayos cósmicos son constantes">
-                Cosmic rays are persistent
-              </h3>
-              <p data-en="High-energy galactic cosmic rays create ongoing exposure. They are especially difficult to block completely."
-                 data-es="Los rayos cósmicos galácticos de alta energía generan una exposición continua. Es especialmente difícil bloquearlos por completo.">
-                High-energy galactic cosmic rays create ongoing exposure.
-                They are especially difficult to block completely.
-              </p>
-            </div>
-          </div>
-
-          <div class="radiation-fact">
-            <span class="radiation-fact-index">02 / SPE</span>
-            <div>
-              <h3 data-en="Solar events can raise the risk"
-                  data-es="Los eventos solares pueden aumentar el riesgo">
-                Solar events can raise the risk
-              </h3>
-              <p data-en="Energetic particles from the Sun can cause sudden increases in exposure. Shelter and early warnings matter."
-                 data-es="Las partículas energéticas del Sol pueden aumentar repentinamente la exposición. Los refugios y las alertas tempranas son importantes.">
-                Energetic particles from the Sun can cause sudden increases
-                in exposure. Shelter and early warnings matter.
-              </p>
-            </div>
-          </div>
-
-          <div class="radiation-fact">
-            <span class="radiation-fact-index">03 / SHIELD</span>
-            <div>
-              <h3 data-en="Protection involves trade-offs"
-                  data-es="La protección implica decisiones">
-                Protection involves trade-offs
-              </h3>
-              <p data-en="Water and polyethylene are among the materials NASA studies for shielding. No practical shield eliminates all space radiation."
-                 data-es="El agua y el polietileno son materiales que NASA estudia para el blindaje. Ningún escudo práctico elimina toda la radiación espacial.">
-                Water and polyethylene are among the materials NASA studies
-                for shielding. No practical shield eliminates all space radiation.
-              </p>
-            </div>
-          </div>
-
-          <aside class="radiation-game-note">
-            <span class="radiation-note-label"
-                  data-en="IN CÓNDOR ROJO · FEATURE IN DEVELOPMENT"
-                  data-es="EN CÓNDOR ROJO · FUNCIÓN EN DESARROLLO">
-              IN CÓNDOR ROJO · FEATURE IN DEVELOPMENT
-            </span>
-            <p data-en="We're exploring a portable shield-capacity mechanic: plan a trip, use limited protection, and return to the habitat to replenish supplies. Shield capacity can be restored; accumulated radiation dose cannot. This is a simplified fictional mechanic inspired by real research, not a real rechargeable radiation field."
-               data-es="Estamos explorando una mecánica de protección portátil limitada: planifica una expedición, usa la protección disponible y regresa al hábitat para reponer suministros. La capacidad de protección puede recuperarse; la dosis de radiación acumulada no. Es una mecánica ficticia y simplificada inspirada en investigaciones reales, no un campo de radiación recargable real.">
-              We're exploring a portable shield-capacity mechanic: plan a trip,
-              use limited protection, and return to the habitat to replenish
-              supplies. Shield capacity can be restored; accumulated radiation
-              dose cannot. This is a simplified fictional mechanic inspired by
-              real research, not a real rechargeable radiation field.
-            </p>
-          </aside>
-
-          <div class="radiation-links">
-            <a href="https://www.nasa.gov/hrp/hazard-space-radiation/"
-               target="_blank" rel="noopener noreferrer"
-               data-en="NASA: SPACE RADIATION ↗"
-               data-es="NASA: RADIACIÓN ESPACIAL ↗">
-              NASA: SPACE RADIATION ↗
-            </a>
-            <a href="https://ddtrb.larc.nasa.gov/radiation/"
-               target="_blank" rel="noopener noreferrer"
-               data-en="NASA: SHIELDING RESEARCH ↗"
-               data-es="NASA: INVESTIGACIÓN DE BLINDAJE ↗">
-              NASA: SHIELDING RESEARCH ↗
-            </a>
-          </div>
+</figcaption>
+</figure>
+<div class="radiation-explainer reveal">
+<div class="radiation-fact">
+<span class="radiation-fact-index">01 / GCR</span>
+<div>
+<h3 data-en="Cosmic rays are persistent" data-es="Los rayos cósmicos son constantes">Cosmic rays are persistent</h3>
+<p data-en="High-energy galactic cosmic rays contribute to ongoing radiation exposure and are difficult to shield against completely." data-es="Los rayos cósmicos galácticos de alta energía contribuyen a una exposición continua a la radiación y son difíciles de bloquear por completo.">High-energy galactic cosmic rays contribute to ongoing radiation exposure and are difficult to shield against completely.</p>
+</div>
+</div>
+<div class="radiation-fact">
+<span class="radiation-fact-index">02 / SPE</span>
+<div>
+<h3 data-en="Solar events can raise the risk" data-es="Los eventos solares pueden aumentar el riesgo">Solar events can raise the risk</h3>
+<p data-en="Energetic particles from the Sun can cause sudden increases in exposure. Monitoring and well-protected shelter help astronauts respond." data-es="Las partículas energéticas del Sol pueden aumentar repentinamente la exposición. El monitoreo y los refugios bien protegidos ayudan a los astronautas a responder.">Energetic particles from the Sun can cause sudden increases in exposure. Monitoring and well-protected shelter help astronauts respond.</p>
+</div>
+</div>
+<div class="radiation-fact">
+<span class="radiation-fact-index">03 / SHIELD</span>
+<div>
+<h3 data-en="Protection involves trade-offs" data-es="La protección exige tomar decisiones">Protection involves trade-offs</h3>
+<p data-en="NASA studies shielding materials such as water and polyethylene. In the game, preparing better shelter consumes supplies and energy." data-es="La NASA estudia materiales de blindaje como el agua y el polietileno. En el juego, preparar un refugio mejor protegido consume suministros y energía.">NASA studies shielding materials such as water and polyethylene. In the game, preparing better shelter consumes supplies and energy.</p>
+</div>
+</div>
+<aside class="radiation-game-note">
+<span class="radiation-note-label" data-en="IN CÓNDOR ROJO · FEATURE IN DEVELOPMENT" data-es="EN CÓNDOR ROJO · FUNCIÓN EN DESARROLLO">IN CÓNDOR ROJO · FEATURE IN DEVELOPMENT</span>
+<p data-en="The game already models cumulative dose, historical solar events, and protection inside the habitat or cave. Historical solar events observed near Earth are used as hypothetical Mars scenarios. Our team is developing a portable shielding-capacity mechanic that can be replenished at the habitat; it is a fictional educational abstraction. Replenishing protection never resets accumulated dose." data-es="El juego ya simula dosis acumulada, eventos solares históricos y protección dentro del hábitat o la cueva. Los eventos solares históricos observados cerca de la Tierra se utilizan como escenarios hipotéticos para Marte. Nuestro equipo está desarrollando una mecánica de capacidad de blindaje portátil que puede reponerse en la base; es una simplificación educativa ficticia. Reponer la protección nunca reinicia la dosis acumulada.">The game already models cumulative dose, historical solar events, and protection inside the habitat or cave. Historical solar events observed near Earth are used as hypothetical Mars scenarios. Our team is developing a portable shielding-capacity mechanic that can be replenished at the habitat; it is a fictional educational abstraction. Replenishing protection never resets accumulated dose.</p>
+</aside>
+<div class="radiation-links">
+<a data-en="NASA: SPACE RADIATION ↗" data-es="NASA: RADIACIÓN ESPACIAL ↗" href="https://www.nasa.gov/hrp/hazard-space-radiation/" rel="noopener noreferrer" target="_blank">NASA: SPACE RADIATION ↗</a>
+<a data-en="NASA: SHIELDING RESEARCH ↗" data-es="NASA: INVESTIGACIÓN SOBRE BLINDAJE ↗" href="https://ddtrb.larc.nasa.gov/radiation/" rel="noopener noreferrer" target="_blank">NASA: SHIELDING RESEARCH ↗</a>
+</div>
+</div>
+</div>
+</section>
+<!-- TEAM -->
+<section class="section team-section" id="team">
+<div class="section-heading reveal">
+<div class="kicker" data-en="07 / THE PEOPLE" data-es="07 / EL EQUIPO">07 / THE PEOPLE</div>
+<h2 data-en="Built by curious minds." data-es="Creado por mentes curiosas.">Built by curious minds.</h2>
+<p data-en="Meet Astrosharks, the team behind Cóndor Rojo." data-es="Conoce a Astrosharks, el equipo detrás de Cóndor Rojo.">Meet Astrosharks, the team behind Cóndor Rojo.</p>
+</div>
+<div class="team-grid">
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Jose Pacheco Cuadros" src="images/JAPC.png"/>
+</div>
+<h3>Jose Pacheco Cuadros</h3>
+<p data-en="Team Leader / Programming and Project Management" data-es="Líder del equipo / Programación y gestión del proyecto">Team Leader / Programming and Project Management</p>
+</article>
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Manuel Fernandez" src="images/MFC.jpg"/>
+</div>
+<h3>Manuel Fernandez</h3>
+<p data-en="Game Designer / Programmer" data-es="Diseñador del juego / Programador">Game Designer / Programmer</p>
+</article>
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Sebastian Silvestre" src="images/SSH.jpg"/>
+</div>
+<h3>Sebastian Silvestre</h3>
+<p data-en="Game Mechanics / Programmer" data-es="Mecánicas de juego / Programador">Game Mechanics / Programmer</p>
+</article>
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Amelia Illescas" src="images/AIC.jpg"/>
+</div>
+<h3>Amelia Illescas</h3>
+<p data-en="Web Design, Programming, Video Editing and Research" data-es="Diseño web, programación, edición de video e investigación">Web Design, Programming, Video Editing and Research</p>
+</article>
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Noelia Yan" src="images/NYW.jpg"/>
+</div>
+<h3>Noelia Yan</h3>
+<p data-en="2D Artist / Pixel Art and Animation" data-es="Artista 2D / Pixel art y animación">2D Artist / Pixel Art and Animation</p>
+</article>
+<article class="team-card reveal">
+<div class="team-avatar">
+<img alt="Daniel Yan" src="images/DYW.png"/>
+</div>
+<h3>Daniel Yan</h3>
+<p data-en="Researcher / Scriptwriter and Story Design" data-es="Investigador / Guionista y diseño narrativo">Researcher / Scriptwriter and Story Design</p>
+</article>
+</div>
+</section>
+<!-- FINAL -->
+<section class="section final-section" id="launch">
+<div class="final-card reveal">
+<div>
+<div class="kicker" data-en="08 / LAUNCH SEQUENCE" data-es="08 / SECUENCIA DE LANZAMIENTO">08 / LAUNCH SEQUENCE</div>
+<h2 data-en="YOUR NEXT MISSION AWAITS." data-es="TU PRÓXIMA MISIÓN TE ESPERA.">YOUR NEXT MISSION AWAITS.</h2>
+<p data-en="Five rover archives. One astronaut. Ten sols to explore and learn." data-es="Cinco archivos de rovers. Un astronauta. Diez soles para explorar y aprender.">Five rover archives. One astronaut. Ten sols to explore and learn.</p>
+<a class="btn btn-dark play-link" data-en="▶ PLAY THE GAME ↗" data-es="▶ JUGAR AHORA ↗" href="game/game.html">▶ PLAY THE GAME ↗</a>
+</div>
+<div class="final-emblem">
+          <img src="images/mars.png" class="final-mars-icon" alt="Mars" width="100" height="100" loading="lazy">
+          <span data-en="EXPLORE BEYOND" data-es="EXPLORA MÁS ALLÁ">EXPLORE BEYOND</span>
         </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section class="section team-section" id="team">
-      <div class="section-heading reveal">
-        <div class="kicker">07 / THE PEOPLE</div>
-        <h2 data-en="Built by curious minds."
-            data-es="Creado por mentes curiosas.">
-          Built by curious minds.
-        </h2>
-        <p data-en="Meet Astrosharks, the team behind Cóndor Rojo."
-           data-es="Conoce a Astrosharks, el equipo detrás de Cóndor Rojo.">
-          Meet Astrosharks, the team behind Cóndor Rojo.
-        </p>
-      </div>
-
-      <div class="team-grid">
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/JAPC.png" alt="Jose Pacheco Cuadros">
-          </div>
-          <h3>Jose Pacheco Cuadros</h3>
-          <p>Team Leader / Programming and Project Management</p>
-        </article>
-
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/MFC.jpg" alt="Manuel Fernandez">
-          </div>
-          <h3>Manuel Fernandez</h3>
-          <p>Game Designer / Programmer</p>
-        </article>
-
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/SSH.jpg" alt="Sebastian Silvestre">
-          </div>
-          <h3>Sebastian Silvestre</h3>
-          <p>Game Mechanics / Programmer</p>
-        </article>
-
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/AIC.jpg" alt="Amelia Illescas">
-          </div>
-          <h3>Amelia Illescas</h3>
-          <p>Researcher / Scientific research and storytelling</p>
-        </article>
-
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/NYW.jpg" alt="Noelia Yan">
-          </div>
-          <h3>Noelia Yan</h3>
-          <p>2D Artist / Pixel Art and Animation</p>
-        </article>
-
-        <article class="team-card reveal">
-          <div class="team-avatar">
-            <img src="images/DYW.png" alt="Daniel Yan">
-          </div>
-          <h3>Daniel Yan</h3>
-          <p>Storyteller / Scriptwriter and Story Design</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- FINAL -->
-    <section class="section final-section" id="launch">
-      <div class="final-card reveal">
-        <div>
-          <div class="kicker">08 / LAUNCH SEQUENCE</div>
-          <h2 data-en="YOUR NEXT MISSION AWAITS."
-              data-es="TU PRÓXIMA MISIÓN TE ESPERA.">
-            YOUR NEXT MISSION AWAITS.
-          </h2>
-          <p data-en="Five rover archives. One astronaut. A planet full of discoveries."
-             data-es="Cinco archivos de rovers. Un astronauta. Un planeta lleno de descubrimientos.">
-            Five rover archives. One astronaut. A planet full of discoveries.
-          </p>
-          <a class="btn btn-dark play-link" href="game/game.html"
-             data-en="EXPLORE THE GAME ↗" data-es="EXPLORAR EL JUEGO ↗">
-            EXPLORE THE GAME ↗
-          </a>
-        </div>
-        <div class="final-emblem">
-        <img src="images/mars.png" alt="Mars" class="final-mars-icon">
-        <span>EXPLORE BEYOND</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-main">
-      <div>
-        <strong>CÓNDOR<span class="accent">ROJO</span></strong>
-        <p>ASTROSHARKS / NASA SPACE APPS CHALLENGE 2026</p>
-      </div>
-      <div class="footer-links">
-        <a href="#mission">MISSION</a>
-        <a href="#facts">MARS FACTS</a>
-        <a href="#team">TEAM</a>
-        <a href="#top">BACK TO TOP ↑</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2026</span> CÓNDOR ROJO</span>
-      <span>INDEPENDENT PROJECT · NOT AN OFFICIAL NASA WEBSITE</span>
-    </div>
-  </footer>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-main">
+<div>
+<strong>CÓNDOR<span class="accent">ROJO</span></strong>
+<p>ASTROSHARKS / NASA SPACE APPS CHALLENGE 2026</p>
+</div>
+<div class="footer-links">
+<a data-en="MISSION" data-es="MISIÓN" href="#mission">MISSION</a>
+<a data-en="MARS FACTS" data-es="DATOS DE MARTE" href="#facts">MARS FACTS</a>
+<a data-en="TEAM" data-es="EQUIPO" href="#team">TEAM</a>
+<a data-en="BACK TO TOP ↑" data-es="VOLVER ARRIBA ↑" href="#top">BACK TO TOP ↑</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> CÓNDOR ROJO</span>
+<span data-en="INDEPENDENT PROJECT · NOT AN OFFICIAL NASA WEBSITE" data-es="PROYECTO INDEPENDIENTE · NO ES UNA WEB OFICIAL DE LA NASA">INDEPENDENT PROJECT · NOT AN OFFICIAL NASA WEBSITE</span>
+</div>
+</footer>
 </body>
 </html>
