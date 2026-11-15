@@ -1,5 +1,5 @@
 
-// CÓNDOR ROJO - ASTROSHARKS WEBSITE
+/* CÓNDOR ROJO - ASTROSHARKS WEBSITE */
 
 // Add the game link when it is published.
 const SITE_CONFIG = {
@@ -54,6 +54,20 @@ languageBtn.addEventListener("click", function () {
             "data-" + currentLanguage
         );
     });
+
+    // Translate accessible text and the meta description as well.
+    document.querySelectorAll("[data-alt-en][data-alt-es]").forEach(function (img) {
+        img.alt = img.getAttribute("data-alt-" + currentLanguage);
+    });
+
+    document.querySelectorAll("[data-aria-label-en][data-aria-label-es]").forEach(function (element) {
+        element.setAttribute("aria-label", element.getAttribute("data-aria-label-" + currentLanguage));
+    });
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description && description.hasAttribute("data-description-" + currentLanguage)) {
+        description.setAttribute("content", description.getAttribute("data-description-" + currentLanguage));
+    }
 
 });
 

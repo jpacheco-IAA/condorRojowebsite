@@ -1154,3 +1154,20 @@ button:focus-visible {
   }
   .section-science .game-science-actions .btn { justify-content: center; }
 }
+
+/* Real pixel-art screenshot in Experience. Replaces the old concept mockup. */
+#experience .preview-art .preview-gameplay-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: #101923;
+}
+
+.section-science .science-dataset-note {
+    margin: 19px 0 8px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
