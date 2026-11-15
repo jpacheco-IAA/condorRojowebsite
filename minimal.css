@@ -1171,3 +1171,43 @@ button:focus-visible {
     font-size: 12px;
     line-height: 1.7;
 }
+/* REAL MARS IMAGE ICONS */
+
+/* Top-left navbar Mars icon */
+.brand-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Keep logo aligned nicely */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mars image inside section cards */
+.solution-symbol {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.section-mars-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.final-mars-icon {
+  width: 78px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10px;
+}
