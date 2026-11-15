@@ -669,3 +669,488 @@ button:focus-visible {
     animation: none;
   }
 }
+
+
+/* ============================================================
+   HERO — REAL MARS BACKGROUND + GAMEPLAY SCREENSHOT
+   Overrides the old split hero; all other sections stay intact.
+   Source: Perseverance Mastcam-Z, PIA26699 (NASA/JPL-Caltech/ASU/MSSS)
+   To host locally: save the NASA image as images/nasa-mars-landscape.jpg
+   and replace the remote URL below with url("images/nasa-mars-landscape.jpg").
+   ============================================================ */
+.hero.hero-launch {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-height: 790px;
+  margin: 0;
+  padding: clamp(58px, 6vw, 98px) 5% 52px;
+  text-align: center;
+  color: #f8f6f4;
+  background-color: #12131a;
+  background-image:
+    linear-gradient(180deg, rgba(8, 13, 21, .70) 0%, rgba(8, 13, 21, .66) 45%, rgba(8, 13, 21, .92) 100%),
+    url("https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia26/pia26699/PIA26699.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"),
+    url("images/mars.png");
+  background-size: cover, cover, cover;
+  background-position: center, center 46%, center;
+  background-repeat: no-repeat;
+}
+
+.hero-launch-inner {
+  width: min(100%, 1050px);
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  margin: 0 0 19px;
+  font: 700 11px/1.5 var(--body, sans-serif);
+  letter-spacing: .19em;
+  color: #ffc69f;
+}
+
+.hero.hero-launch h1 {
+  margin: 0;
+  font: 700 clamp(53px, 7.5vw, 104px)/1.02 var(--display, sans-serif);
+  letter-spacing: -.074em;
+  text-wrap: balance;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, .25);
+}
+.hero.hero-launch h1 em {
+  color: #ee9b76;
+  font-style: normal;
+}
+
+.hero-launch-description {
+  max-width: 750px;
+  margin: 20px auto 33px;
+  font-size: clamp(14px, 1.65vw, 19px);
+  line-height: 1.65;
+  color: #e3e4e6;
+}
+
+.hero-game-frame {
+  width: min(100%, 940px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(245, 232, 221, .34);
+  border-radius: 14px;
+  background: #111722;
+  text-align: left;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, .55);
+}
+
+.hero-game-topbar {
+  min-height: 38px;
+  padding: 10px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #141b25;
+  color: #c4ccd6;
+  font: 600 10px/1.4 var(--mono, monospace);
+  letter-spacing: .12em;
+}
+.hero-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #e89f70;
+  box-shadow: 0 0 12px rgba(232, 159, 112, .7);
+}
+
+.hero-screenshot-placeholder,
+.hero-screenshot-image {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.hero-screenshot-placeholder {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  text-align: center;
+  padding: 30px;
+  color: #e2e7ed;
+  background:
+    linear-gradient(135deg, rgba(9, 13, 21, .3), rgba(16, 24, 35, .8)),
+    repeating-linear-gradient(0deg, transparent, transparent 43px, rgba(255,255,255,.035) 44px),
+    #243244;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.hero-placeholder-icon {
+  font-size: clamp(36px, 6vw, 65px);
+  line-height: 1;
+  color: #eca57d;
+}
+.hero-screenshot-placeholder strong {
+  font: 700 clamp(15px, 2.2vw, 23px) var(--display, sans-serif);
+  letter-spacing: .08em;
+}
+.hero-screenshot-placeholder small {
+  font-size: 12px;
+  color: #bac6d3;
+}
+
+/* Applied to your real screenshot after replacing the placeholder div. */
+.hero-screenshot-image {
+  height: auto;
+  object-fit: contain;
+  background: #0a0d12;
+  image-rendering: auto;
+}
+
+.hero-launch-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  margin-top: 27px;
+}
+
+.hero-launch .hero-play-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 320px);
+  min-height: 64px;
+  padding: 18px 42px;
+  background: #ee9b76;
+  color: #19151a;
+  border: 1px solid #ee9b76;
+  border-radius: 9px;
+  font: 800 16px var(--body, sans-serif);
+  letter-spacing: .05em;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .22);
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.hero-launch .hero-play-button:hover {
+  transform: translateY(-3px);
+  background: #ffc39f;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+}
+.hero-secondary-link {
+  color: #e1e6eb;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.hero-secondary-link:hover { color: #ffc39f; }
+
+.hero-photo-credit {
+  margin: 30px 0 0;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: .045em;
+  color: #b7bfcc;
+}
+.hero-photo-credit a {
+  color: #d3dae3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 850px) {
+  .hero.hero-launch {
+    min-height: 0;
+    padding: 75px 5% 45px;
+  }
+}
+@media (max-width: 580px) {
+  .hero.hero-launch { padding: 65px 5% 36px; }
+  .hero-kicker { font-size: 9px; letter-spacing: .10em; }
+  .hero.hero-launch h1 { font-size: clamp(44px, 11vw, 68px); }
+  .hero-launch-description { margin: 17px auto 25px; }
+  .hero-game-topbar { font-size: 8px; padding: 9px 11px; }
+  .hero-screenshot-placeholder { padding: 14px; gap: 6px; }
+  .hero-screenshot-placeholder small { font-size: 10px; }
+  .hero-launch .hero-play-button { width: 100%; min-height: 59px; }
+  .hero-photo-credit { font-size: 9px; }
+}
+
+
+/* ==============================================================
+   NASA RADIATION & SHIELDING — MINIMAL SCIENCE FEATURE
+   Only styles the newly added section; old styles are preserved.
+   ============================================================== */
+.section-radiation {
+  padding-top: 100px;
+  padding-bottom: 104px;
+}
+.section-radiation .section-heading {
+  max-width: 910px;
+  margin-bottom: 38px;
+}
+.radiation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+.radiation-photo {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #111a26;
+  border-radius: 12px;
+}
+.radiation-photo img {
+  display: block;
+  width: 100%;
+  min-height: 270px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #17202d;
+  filter: contrast(1.05);
+}
+.radiation-photo-caption { padding: 20px 22px 24px; }
+.radiation-photo-caption > span {
+  color: var(--orange);
+  font-size: 10px;
+  letter-spacing: .1em;
+  font-weight: 700;
+}
+.radiation-photo-caption p {
+  margin: 10px 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.radiation-photo-caption a {
+  color: #d5dce6;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.radiation-photo-caption a:hover { color: var(--orange); }
+.radiation-explainer { min-width: 0; }
+.radiation-fact {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 15px;
+  padding: 0 0 20px;
+  margin-bottom: 21px;
+  border-bottom: 1px solid var(--line);
+}
+.radiation-fact-index {
+  padding-top: 5px;
+  color: var(--orange);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.radiation-fact h3 {
+  margin: 0 0 8px;
+  color: var(--cream);
+  font-size: clamp(17px, 1.8vw, 21px);
+  line-height: 1.25;
+}
+.radiation-fact p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.radiation-game-note {
+  margin: 4px 0 22px;
+  padding: 18px 20px;
+  border-left: 2px solid var(--orange);
+  border-radius: 0 9px 9px 0;
+  background: #15202d;
+}
+.radiation-note-label {
+  color: #e8aa8b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.radiation-game-note p {
+  color: #c1cad8;
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 9px 0 0;
+}
+.radiation-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+}
+.radiation-links a {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .015em;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.radiation-links a:hover { color: #ffc7a7; }
+
+/* A little extra space for the added navigation item. */
+@media (min-width: 951px) {
+  .main-nav { gap: clamp(12px, 1.35vw, 19px); }
+  .main-nav a { font-size: 11px; }
+}
+@media (max-width: 850px) {
+  .radiation-layout { grid-template-columns: 1fr; gap: 25px; }
+  .radiation-photo { max-width: 760px; }
+}
+@media (max-width: 580px) {
+  .section-radiation { padding-top: 75px; padding-bottom: 70px; }
+  .radiation-fact { grid-template-columns: 60px minmax(0,1fr); gap: 12px; }
+  .radiation-photo img { min-height: 180px; }
+  .radiation-photo-caption { padding: 17px; }
+  .radiation-links { flex-direction: column; align-items: flex-start; }
+}
+
+
+/* SCIENCE: authentic NASA Mars imagery (add after existing CSS) */
+.section-science .science-photo {
+  position: relative;
+  display: block;
+  min-height: 0;
+  height: 430px;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #17202b;
+}
+.section-science .science-real-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.section-science .science-image-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 58px 22px 20px;
+  background: linear-gradient(transparent, rgba(6, 10, 17, .94));
+}
+.section-science .science-image-caption span {
+  color: #f6f3f0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.section-science .science-image-caption a {
+  color: #d5dee7;
+  font-size: 10px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.section-science .science-image-caption a:hover {
+  color: var(--orange);
+}
+.section-science .science-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 26px;
+  margin-top: 24px;
+}
+.section-science .science-secondary-link {
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.section-science .science-secondary-link:hover {
+  color: var(--orange);
+}
+@media (max-width: 850px) {
+  .section-science .science-photo { height: 360px; }
+}
+@media (max-width: 580px) {
+  .section-science .science-photo { height: 285px; }
+  .section-science .science-image-caption { padding: 45px 16px 15px; }
+}
+
+/* ============================================================
+   GAME-FIRST SCIENCE: actions players take + NASA references
+   Leaves the existing Jezero Crater image and layout untouched.
+   ============================================================ */
+.section-science .science-copy > p {
+  margin-bottom: 25px;
+}
+.section-science .game-science-list {
+  border-top: 1px solid var(--line);
+}
+.section-science .game-science-item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 14px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-science .game-science-index {
+  padding-top: 4px;
+  color: var(--orange);
+  font: 700 11px 'Space Grotesk', sans-serif;
+  letter-spacing: .08em;
+}
+.section-science .game-science-item h3 {
+  margin: 0 0 7px;
+  font: 650 clamp(17px, 1.6vw, 21px)/1.3 'Space Grotesk', sans-serif;
+  color: var(--cream);
+}
+.section-science .game-science-item p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.section-science .game-science-item a {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.section-science .game-science-item a:hover { color: #ffc7a7; }
+.section-science .game-science-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 20px;
+  align-items: center;
+  margin-top: 25px;
+}
+.section-science .game-science-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  border-radius: 6px;
+  padding: 13px 20px;
+  white-space: nowrap;
+}
+@media (max-width: 580px) {
+  .section-science .game-science-item {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 10px;
+    padding: 17px 0;
+  }
+  .section-science .game-science-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .section-science .game-science-actions .btn { justify-content: center; }
+}
