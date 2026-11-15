@@ -1,220 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>Cóndor Rojo</title>
-		<style>
-html, body, #canvas {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
-}
-
-#canvas {
-	display: block;
-}
-
-#canvas:focus {
-	outline: none;
-}
-
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
-
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
-}
-
-#status {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
-}
-
-#status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
-}
-
-#status-splash.show-image--false {
-	display: none;
-}
-
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
-}
-
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
-}
-
-#status-progress, #status-notice {
-	display: none;
-}
-
-#status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
-}
-
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
-	text-align: center;
-	z-index: 1;
-}
-		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="game.icon.png" />
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#08101e">
+    <meta name="description" content="Cóndor Rojo — simulador educativo de supervivencia en Marte, por AstroSharks GYE.">
+    <title>Cóndor Rojo</title>
+    <link id="-gd-engine-icon" rel="icon" type="image/png" href="game.icon.png" />
 <link rel="apple-touch-icon" href="game.apple-touch-icon.png"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"><style>html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#0d121c}#canvas{display:block;width:100%;height:100%;touch-action:none;background:#0d121c}#status,#status-progress,#status-indeterminate{background:#142030;border:2px solid #3a1a28}#status-progress-inner{background:#3ed4e8}</style>
-	</head>
-	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
 
-		<noscript>
-			Your browser does not support JavaScript.
-		</noscript>
+    <style>
+        :root {
+            color-scheme: dark;
+            --space: #08101e;
+            --panel: #101b2d;
+            --stroke: #34455d;
+            --white: #f5f2e9;
+            --secondary: #a3b5c9;
+            --cyan: #4bd3e4;
+            --mars: #e66d46;
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0;
+            overflow: hidden; background: var(--space);
+        }
+        body { font-family: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; }
+        #canvas {
+            position: absolute; inset: 0; display: block;
+            width: 100%; height: 100%; border: 0; outline: none;
+            touch-action: none; background: var(--space);
+        }
+        #loading-screen {
+            position: fixed; z-index: 10; inset: 0;
+            min-height: 100%; min-height: 100dvh;
+            display: flex; align-items: center; justify-content: center;
+            padding: max(20px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right))
+                     max(20px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+            background:
+                radial-gradient(ellipse at 50% 39%, rgba(116, 48, 36, .19), transparent 38%),
+                radial-gradient(circle at 16% 27%, #60758c 0 1px, transparent 1.5px),
+                radial-gradient(circle at 78% 74%, #546987 0 1px, transparent 1.5px),
+                radial-gradient(circle at 40% 82%, #778a9d 0 1px, transparent 1.5px),
+                radial-gradient(circle at 85% 17%, #526783 0 1px, transparent 1.5px),
+                var(--space);
+            background-size: auto, 177px 133px, 237px 171px, 297px 249px, 343px 311px, auto;
+            opacity: 1; transition: opacity .38s ease;
+        }
+        #loading-screen.is-finished { opacity: 0; pointer-events: none; }
+        .mission-panel {
+            width: min(100%, 474px); text-align: center;
+            padding: clamp(24px, 4.8vh, 44px) clamp(22px, 5vw, 42px) 31px;
+            background: linear-gradient(155deg, rgba(21, 34, 53, .94), rgba(9, 18, 32, .98));
+            border: 1px solid var(--stroke);
+            box-shadow: 0 0 0 5px rgba(7, 13, 25, .7), 0 22px 90px rgba(0, 0, 0, .46);
+            position: relative;
+        }
+        .mission-panel::before, .mission-panel::after {
+            content: ''; position: absolute; width: 19px; height: 19px;
+            border-color: var(--mars); border-style: solid;
+        }
+        .mission-panel::before { left: -2px; top: -2px; border-width: 3px 0 0 3px; }
+        .mission-panel::after { right: -2px; bottom: -2px; border-width: 0 3px 3px 0; }
+        .eyebrow {
+            color: var(--cyan); letter-spacing: .18em; text-transform: uppercase;
+            font-size: clamp(9px, 1.25vw, 11px); font-weight: 700;
+        }
+        .logo-wrap {
+            width: clamp(150px, 24vh, 212px); aspect-ratio: 1;
+            margin: clamp(12px, 2.5vh, 22px) auto 6px;
+            position: relative; display: grid; place-items: center;
+        }
+        .logo-wrap::before {
+            content: ''; position: absolute; inset: 15%; border-radius: 50%;
+            box-shadow: 0 0 60px 18px rgba(209, 94, 58, .13);
+        }
+        .logo-wrap img {
+            width: 100%; height: 100%; object-fit: contain; position: relative;
+            image-rendering: pixelated; display: block;
+        }
+        h1 {
+            color: var(--white); font-family: inherit; line-height: 1.15;
+            font-size: clamp(27px, 5.6vw, 39px); font-weight: 800;
+            letter-spacing: .095em; margin: 3px 0 10px;
+            text-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+        }
+        .subtitle { font-size: 11px; letter-spacing: .16em; color: var(--secondary); margin: 0 0 32px; }
+        .loading-details { display: flex; justify-content: space-between; gap: 18px; align-items: baseline;
+            margin: 0 0 12px; font-size: 12px; }
+        #loading-status { color: var(--white); text-align: left; }
+        #loading-percent { color: var(--cyan); min-width: 37px; text-align: right; font-variant-numeric: tabular-nums; }
+        #progress-track {
+            position: relative; height: 13px; overflow: hidden; border: 2px solid #48617a;
+            background: #0a1525; box-shadow: inset 0 0 0 2px #0a1525;
+        }
+        #progress-fill { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #1da9c3, var(--cyan));
+            transition: width .15s ease; }
+        #progress-track.is-indeterminate #progress-fill {
+            width: 36%; animation: wander 1.45s ease-in-out infinite;
+        }
+        @keyframes wander { 0% { transform: translateX(-105%); } 100% { transform: translateX(310%); } }
+        .fine-print { color: #758ba1; font-size: 10px; letter-spacing: .1em; margin: 18px 0 0; }
+        #error-detail { display: none; text-align: left; font-size: 11px; color: #f7bda9;
+            margin-top: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+        #retry-button {
+            display: none; background: #193c49; color: #fff; border: 1px solid var(--cyan);
+            font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: .07em;
+            padding: 11px 16px; margin-top: 18px; cursor: pointer;
+        }
+        #retry-button:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
+        .has-error #progress-track { border-color: #a95a4b; }
+        .has-error #progress-fill { width: 100%; background: #b75541; animation: none; }
+        .has-error #error-detail, .has-error #retry-button { display: block; }
+        @media (max-height: 580px) {
+            .mission-panel { padding-top: 16px; padding-bottom: 17px; }
+            .logo-wrap { width: clamp(88px, 21vh, 124px); margin: 5px auto 3px; }
+            .subtitle { margin-bottom: 19px; }
+            .fine-print { margin-top: 12px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" tabindex="0" aria-label="Juego Cóndor Rojo"></canvas>
+    <div id="loading-screen" role="status" aria-live="polite">
+        <main class="mission-panel">
+            <div class="eyebrow">ASTROSHARKS GYE <span aria-hidden="true">//</span> MISIÓN MARTE</div>
+            <div class="logo-wrap"><img src="game.png" alt="Logo de Cóndor Rojo: astronauta frente a Marte"></div>
+            <h1>CÓNDOR ROJO</h1>
+            <p class="subtitle">EXPLORA · APRENDE · SOBREVIVE</p>
+            <div class="loading-details">
+                <span id="loading-status">Preparando la misión…</span>
+                <span id="loading-percent" aria-hidden="true">…</span>
+            </div>
+            <div id="progress-track" class="is-indeterminate" role="progressbar" aria-label="Progreso de carga" aria-valuemin="0" aria-valuemax="100" aria-valuetext="Preparando la misión">
+                <span id="progress-fill"></span>
+            </div>
+            <p id="error-detail"></p>
+            <button id="retry-button" type="button">REINTENTAR</button>
+            <p class="fine-print">SIMULADOR EDUCATIVO · ASTROSHARKS</p>
+        </main>
+    </div>
+    <script src="game.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const loading = document.getElementById('loading-screen');
+            const track = document.getElementById('progress-track');
+            const fill = document.getElementById('progress-fill');
+            const label = document.getElementById('loading-status');
+            const percent = document.getElementById('loading-percent');
+            const retry = document.getElementById('retry-button');
+            const detail = document.getElementById('error-detail');
+            const canvas = document.getElementById('canvas');
 
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="game.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
+            retry.addEventListener('click', function () { location.reload(); });
 
-		<script src="game.js"></script>
-		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"game","experimentalVK":false,"fileSizes":{"game.pck":7372264,"game.wasm":37902138},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
-const GODOT_THREADS_ENABLED = false;
-const engine = new Engine(GODOT_CONFIG);
+            function showError(message, error) {
+                loading.classList.add('has-error');
+                track.classList.remove('is-indeterminate');
+                label.textContent = message;
+                percent.textContent = '!';
+                detail.textContent = error && error.message ? error.message : 'Comprueba tu conexión y actualiza esta página.';
+                track.removeAttribute('aria-valuenow');
+                track.setAttribute('aria-valuetext', message);
+                if (error) console.error('Cóndor Rojo Web:', error);
+            }
 
-(function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
+            function onProgress(loaded, total) {
+                if (loading.classList.contains('has-error')) return;
+                if (typeof total === 'number' && total > 0 && Number.isFinite(total)) {
+                    const progress = Math.max(0, Math.min(100, Math.round(loaded / total * 100)));
+                    track.classList.remove('is-indeterminate');
+                    fill.style.width = progress + '%';
+                    percent.textContent = progress + '%';
+                    label.textContent = progress >= 100 ? 'Iniciando el simulador…' : 'Descargando recursos…';
+                    track.setAttribute('aria-valuenow', String(progress));
+                    track.removeAttribute('aria-valuetext');
+                } else {
+                    track.classList.add('is-indeterminate');
+                    percent.textContent = '…';
+                    label.textContent = 'Preparando archivos…';
+                    track.removeAttribute('aria-valuenow');
+                    track.setAttribute('aria-valuetext', 'Cargando archivos, tamaño total desconocido');
+                }
+            }
 
-	let initializing = true;
-	let statusMode = '';
+            if (typeof Engine === 'undefined') {
+                showError('No se pudo descargar el motor del juego.');
+                return;
+            }
+            if (typeof Engine.isWebGLAvailable === 'function' && !Engine.isWebGLAvailable()) {
+                showError('Tu navegador necesita WebGL 2.0.', new Error('Prueba con una versión actualizada de Chrome, Firefox o Edge.'));
+                return;
+            }
 
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
-	}
-
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
-		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
-	function displayFailureNotice(err) {
-		console.error(err);
-		if (err instanceof Error) {
-			setStatusNotice(err.message);
-		} else if (typeof err === 'string') {
-			setStatusNotice(err);
-		} else {
-			setStatusNotice('An unknown error occurred.');
-		}
-		setStatusMode('notice');
-		initializing = false;
-	}
-
-	const missing = Engine.getMissingFeatures({
-		threads: GODOT_THREADS_ENABLED,
-	});
-
-	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			// There's a chance that installing the service worker would fix the issue
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
-					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				// Reload if there was no error.
-				window.location.reload();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-			});
-		} else {
-			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-			displayFailureNotice(missingMsg + missing.join('\n'));
-		}
-	} else {
-		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
-	}
-}());
-		</script>
-	</body>
+            const engine = new Engine({"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"game","experimentalVK":false,"fileSizes":{"game.pck":7682880,"game.wasm":37902138},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4});
+            engine.startGame({ canvas: canvas, onProgress: onProgress }).then(function () {
+                // Only remove the overlay after the engine has started drawing.
+                label.textContent = '¡Misión lista!';
+                percent.textContent = '100%';
+                track.classList.remove('is-indeterminate');
+                fill.style.width = '100%';
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        loading.classList.add('is-finished');
+                        canvas.focus({ preventScroll: true });
+                        setTimeout(function () { loading.remove(); }, 420);
+                    });
+                });
+            }).catch(function (error) {
+                showError('No se pudo iniciar la misión.', error);
+            });
+        }());
+    </script>
+</body>
 </html>
 
